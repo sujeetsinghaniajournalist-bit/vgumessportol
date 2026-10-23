@@ -112,7 +112,7 @@
         <span>Vivekananda Global University (VGU), Jaipur</span>
       </div>
       <div class="flex items-center gap-2">
-        <span id="mongoLiveStatusBadge" class="hidden"></span>
+        <span id="mongoLiveStatusBadge" class="hidden" style="display: none !important;"></span>
         <div class="flex items-center gap-1.5 font-mono text-[11px] sm:text-xs text-emerald-300 font-bold bg-slate-800/95 px-3 py-1 rounded-lg border border-slate-700 shadow-xs">
           <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span id="liveIstClock">IST: Loading...</span>
@@ -2676,6 +2676,10 @@
 
       async function checkMongoBackendHealth() {
         const badge = document.getElementById('mongoLiveStatusBadge');
+        if (badge) {
+          badge.className = 'hidden';
+          badge.style.display = 'none';
+        }
         try {
           const healthUrl = isLocalFileOrDev ? 'http://localhost:5000/api/health' : '/api/health';
           const res = await fetch(healthUrl, {
@@ -2686,22 +2690,12 @@
           if (res.ok) {
             const data = await res.json();
             isMongoBackendOnline = true;
-            if (badge) {
-              badge.className = 'font-mono text-[11px] bg-emerald-950/80 text-emerald-300 px-2.5 py-0.5 rounded border border-emerald-700/60 flex items-center gap-1.5';
-              badge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span>MongoDB: Online (' + (data.mongoDb?.databaseName || 'vgu_mess_db') + ')</span>';
-              badge.title = 'Connected to Node.js & MongoDB Backend at http://localhost:5000';
-            }
             return true;
           }
         } catch (e) {
           // Backend offline or not yet started
         }
         isMongoBackendOnline = false;
-        if (badge) {
-          badge.className = 'font-mono text-[11px] bg-amber-950/70 text-amber-300 px-2.5 py-0.5 rounded border border-amber-700/60 flex items-center gap-1.5';
-          badge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>MongoDB: Standby (Local Mode)</span>';
-          badge.title = 'Backend server offline. Run "npm start" in C:\\Users\\Lenovo\\Desktop\\backend to connect live MongoDB.';
-        }
         return false;
       }
 
