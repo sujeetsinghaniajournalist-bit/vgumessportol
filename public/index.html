@@ -106,24 +106,17 @@
 
   <!-- TOP INSTITUTIONAL UTILITY BAR -->
   <div class="bg-slate-900 text-slate-200 text-xs border-b border-slate-800 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-3 flex-wrap">
-        <span class="inline-flex items-center gap-1.5 font-semibold text-white">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Vivekananda Global University (VGU), Jaipur, Rajasthan, India
-        </span>
-        <span class="hidden md:inline text-slate-500">|</span>
-        <span class="hidden md:inline text-slate-300">Hostel &amp; Dining Services Quality Assurance Cell &bull; Committee Head: Sujeet Kumar</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-semibold text-white text-xs sm:text-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+        <span>Vivekananda Global University (VGU), Jaipur</span>
       </div>
-      <div class="flex items-center gap-3 ml-auto">
-        <span id="mongoLiveStatusBadge" class="font-mono text-[11px] bg-emerald-950/80 text-emerald-300 px-2.5 py-0.5 rounded border border-emerald-700/60 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span>MongoDB: Ready</span></span>
-        <span id="liveIstClock" class="font-mono text-[11px] bg-slate-800 text-slate-200 px-2.5 py-0.5 rounded border border-slate-700">IST: Loading...</span>
-        <button id="openSystemDocsBtn" type="button" class="text-slate-300 hover:text-white underline underline-offset-2 font-medium">
-          Deployment &amp; DB Spec
-        </button>
-        <button id="openAcceptanceTestsBtn" type="button" class="bg-emerald-700/80 hover:bg-emerald-600 text-white px-2.5 py-0.5 rounded font-medium transition">
-          Acceptance Verify (17/17)
-        </button>
+      <div class="flex items-center gap-2">
+        <span id="mongoLiveStatusBadge" class="hidden"></span>
+        <div class="flex items-center gap-1.5 font-mono text-[11px] sm:text-xs text-emerald-300 font-bold bg-slate-800/95 px-3 py-1 rounded-lg border border-slate-700 shadow-xs">
+          <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span id="liveIstClock">IST: Loading...</span>
+        </div>
       </div>
     </div>
   </div>
