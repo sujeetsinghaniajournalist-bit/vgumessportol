@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "echo VGU Mess Portal build successful",
     "dev": "node --watch server.js",
     "seed": "node seed.js"
   },
