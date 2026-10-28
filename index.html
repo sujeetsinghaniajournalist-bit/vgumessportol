@@ -453,63 +453,7 @@
           </div>
         </div>
       </section>
-      <!-- SECTION 8: GENUINE DATABASE FEEDBACK STATISTICS -->
-      <section aria-labelledby="stats-heading" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-red-700">Live Database Records</span>
-            <h2 id="stats-heading" class="text-2xl font-extrabold text-slate-900 mt-1">
-              Genuine Portal Statistics (Real-Time Database)
-            </h2>
-            <p class="text-sm text-slate-600 mt-1">
-              Calculated strictly from actual stored records in the database. Zero fabricated ratings or artificial counters.
-            </p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span id="dbSampleWarningBadge" class="text-xs font-medium px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 border border-amber-200">
-              Sample size: n = 0
-            </span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Total Stored Submissions</span>
-              <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-sm">#</span>
-            </div>
-            <p id="homeStatTotalCount" class="text-3xl font-extrabold text-slate-900 mt-3">0</p>
-            <p id="homeStatBreakdownText" class="text-xs text-slate-600 mt-1">0 meal reviews &bull; 0 issue reports</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Average Food Quality</span>
-              <span class="w-8 h-8 rounded-lg bg-red-50 text-red-700 flex items-center justify-center font-bold text-sm">★</span>
-            </div>
-            <p id="homeStatAvgFood" class="text-3xl font-extrabold text-slate-900 mt-3">No data</p>
-            <p id="homeStatAvgFoodSub" class="text-xs text-slate-600 mt-1">Based on 0 meal ratings</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Average Hygiene Rating</span>
-              <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-800 flex items-center justify-center font-bold text-sm">✓</span>
-            </div>
-            <p id="homeStatAvgHygiene" class="text-3xl font-extrabold text-slate-900 mt-3">No data</p>
-            <p id="homeStatAvgHygieneSub" class="text-xs text-slate-600 mt-1">Based on 0 overall reviews</p>
-          </div>
-
-          <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Complaint Resolution</span>
-              <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-sm">⚑</span>
-            </div>
-            <p id="homeStatResolution" class="text-3xl font-extrabold text-slate-900 mt-3">0 / 0</p>
-            <p id="homeStatResolutionSub" class="text-xs text-slate-600 mt-1">Resolved vs. Total tracked records</p>
-          </div>
-        </div>
-      </section>
+      
 
             <!-- ====================================================================== -->
       <!-- SECTION: LIVE RUNNING SHOWCASE OF REAL VGU MESS MENU DISHES            -->
@@ -1965,6 +1909,66 @@
 
         <!-- ADMIN SUBVIEW 1: OVERVIEW KPI CARDS & COMPLAINT MANAGEMENT -->
         <div id="admintab-overview" class="space-y-6">
+
+          <!-- GENUINE DATABASE FEEDBACK STATISTICS (ADJUSTED IN ADMIN DASHBOARD) -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-red-700">Live Database Records</span>
+                <h2 id="stats-heading" class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
+                  Genuine Portal Statistics (Real-Time Database)
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                  Calculated strictly from actual stored records in the database. Zero fabricated ratings or artificial counters.
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span id="dbSampleWarningBadge" class="text-xs font-medium px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 border border-amber-200">
+                  Sample size: n = 0
+                </span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div class="bg-slate-50/80 rounded-xl p-5 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Total Stored Submissions</span>
+                  <span class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-800 flex items-center justify-center font-bold text-sm shadow-xs">#</span>
+                </div>
+                <p id="homeStatTotalCount" class="text-3xl font-extrabold text-slate-900 mt-3">0</p>
+                <p id="homeStatBreakdownText" class="text-xs text-slate-600 mt-1">0 meal reviews &bull; 0 issue reports</p>
+              </div>
+
+              <div class="bg-slate-50/80 rounded-xl p-5 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Average Food Quality</span>
+                  <span class="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center font-bold text-sm shadow-xs">★</span>
+                </div>
+                <p id="homeStatAvgFood" class="text-3xl font-extrabold text-slate-900 mt-3">No data</p>
+                <p id="homeStatAvgFoodSub" class="text-xs text-slate-600 mt-1">Based on 0 meal ratings</p>
+              </div>
+
+              <div class="bg-slate-50/80 rounded-xl p-5 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Average Hygiene Rating</span>
+                  <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm shadow-xs">✓</span>
+                </div>
+                <p id="homeStatAvgHygiene" class="text-3xl font-extrabold text-slate-900 mt-3">No data</p>
+                <p id="homeStatAvgHygieneSub" class="text-xs text-slate-600 mt-1">Based on 0 overall reviews</p>
+              </div>
+
+              <div class="bg-slate-50/80 rounded-xl p-5 border border-slate-200">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Complaint Resolution</span>
+                  <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm shadow-xs">⚑</span>
+                </div>
+                <p id="homeStatResolution" class="text-3xl font-extrabold text-slate-900 mt-3">0 / 0</p>
+                <p id="homeStatResolutionSub" class="text-xs text-slate-600 mt-1">Resolved vs. Total tracked records</p>
+              </div>
+            </div>
+          </div>
+
+          
           <!-- 12 Required KPI Overview Metrics -->
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
@@ -3780,6 +3784,7 @@
         document.getElementById('activeAdminEmailDisplay').textContent = currentAdminUser.email;
         if (typeof update2FaUiState === 'function') update2FaUiState(db.config ? !!db.config.twoFactorEnabled : false);
 
+        renderHomeStatistics();
         renderAdminOverviewKpisAndTable();
         renderAdminMenuManager();
         renderAdminEmailLogs();
