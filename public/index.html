@@ -482,211 +482,207 @@
     <!-- ================================================================== -->
     <div id="view-home" class="space-y-14 pb-16">
 
-      <!-- SECTION 2, 3, 4: 4K HD HERO SECTION WITH LIVE MEAL TIMINGS & CAMPUS CAROUSEL -->
-      <section class="relative bg-gradient-to-br from-[#4a0811] via-[#7a121d] to-[#36050b] text-white overflow-hidden border-b-4 border-[#c59b27] shadow-2xl">
-        <!-- University Decorative Glows -->
-        <div class="absolute -top-32 -left-32 w-96 h-96 bg-red-900/30 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14 relative z-10">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <!-- SECTION 2, 3, 4: VGU INSTITUTIONAL PORTAL HERO SECTION (INSPIRED BY VGU ONLINE PROGRAMS DESIGN) -->
+      <section class="relative bg-gradient-to-b from-[#fff5f6] via-[#fdf4f5] to-white py-10 sm:py-14 border-b border-red-100 shadow-xs">
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-7 relative z-10">
+          
+          <!-- Institutional Header Block (Directly matching VGU Typography & Color Palette) -->
+          <div class="text-center space-y-2.5 max-w-3xl mx-auto">
             
-            <!-- Left Column: Institutional Header & Live Timings Card -->
-            <div class="lg:col-span-7 space-y-6">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-900/60 border border-red-700/80 text-red-200 text-xs font-bold tracking-wide uppercase shadow-sm">
-                  <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
-                  Official Campus Dining Portal &bull; VGU Jaipur
-                </span>
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-950/70 border border-blue-700/60 text-blue-300 text-xs font-semibold">
-                  NAAC Grade 'A+' Accredited
-                </span>
-              </div>
-
-              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                VGU Mess Review &amp; Feedback Portal
-                <span class="block text-xl sm:text-2xl lg:text-3xl mt-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-amber-200 to-amber-400">
-                  Your Feedback. Better Food. A Better Campus Dining Experience.
-                </span>
-              </h1>
-
-              <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-                Students and hostel residents at Vivekananda Global University can transparently review daily mess meals, rate food quality and hygiene, and report dining concerns directly to Hostel Head &amp; VGU Mess Administration.
-              </p>
-
-              <!-- LIVE OPERATING MEAL TIMINGS (4 CARDS) -->
-              <div class="bg-[#2d0408]/85 rounded-2xl p-4 sm:p-5 border border-red-800/80 shadow-inner">
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800/80">
-                  <div class="flex items-center gap-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
-                      <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                      Daily Mess Operating Hours
-                    </span>
-                  </div>
-                  <span class="text-[11px] text-slate-400">All Dining Halls &bull; Indian Standard Time</span>
-                </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  <!-- Breakfast Card -->
-                  <div id="heroTimingCard-Breakfast" class="p-2.5 rounded-xl border border-red-900/80 bg-[#3d060e]/90 transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                      <div class="flex items-center justify-between gap-1 mb-1">
-                        <span class="text-[11px] font-bold text-slate-200">🍳 Breakfast</span>
-                        <span id="heroTimingBadge-Breakfast" class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-semibold text-[9px]">Slot</span>
-                      </div>
-                      <p class="text-xs font-extrabold text-amber-300">7:30 AM – 8:15 AM</p>
-                    </div>
-                    <p class="text-[10px] text-slate-400 mt-1">Morning Service</p>
-                  </div>
-
-                  <!-- Lunch Card -->
-                  <div id="heroTimingCard-Lunch" class="p-2.5 rounded-xl border border-red-900/80 bg-[#3d060e]/90 transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                      <div class="flex items-center justify-between gap-1 mb-1">
-                        <span class="text-[11px] font-bold text-slate-200">🍛 Lunch</span>
-                        <span id="heroTimingBadge-Lunch" class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-semibold text-[9px]">Slot</span>
-                      </div>
-                      <p class="text-xs font-extrabold text-amber-300">12:00 PM – 1:50 PM</p>
-                    </div>
-                    <p class="text-[10px] text-slate-400 mt-1">Afternoon Service</p>
-                  </div>
-
-                  <!-- Evening Snacks Card -->
-                  <div id="heroTimingCard-Evening-Snacks" class="p-2.5 rounded-xl border border-red-900/80 bg-[#3d060e]/90 transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                      <div class="flex items-center justify-between gap-1 mb-1">
-                        <span class="text-[11px] font-bold text-slate-200">☕ Snacks</span>
-                        <span id="heroTimingBadge-Evening-Snacks" class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-semibold text-[9px]">Slot</span>
-                      </div>
-                      <p class="text-xs font-extrabold text-amber-300">4:30 PM – 5:20 PM</p>
-                    </div>
-                    <p class="text-[10px] text-slate-400 mt-1">Refreshment Tea</p>
-                  </div>
-
-                  <!-- Dinner Card -->
-                  <div id="heroTimingCard-Dinner" class="p-2.5 rounded-xl border border-red-900/80 bg-[#3d060e]/90 transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                      <div class="flex items-center justify-between gap-1 mb-1">
-                        <span class="text-[11px] font-bold text-slate-200">🍲 Dinner</span>
-                        <span id="heroTimingBadge-Dinner" class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-semibold text-[9px]">Slot</span>
-                      </div>
-                      <p class="text-xs font-extrabold text-amber-300">7:00 PM – 8:30 PM</p>
-                    </div>
-                    <p class="text-[10px] text-slate-400 mt-1">Evening Service</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CTA Buttons -->
-              <div class="flex flex-wrap items-center gap-3.5 pt-1">
-                <button type="button" id="heroSubmitFeedbackBtn" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-red-700 to-red-800 hover:from-red-600 hover:to-red-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-red-950/60 transition flex items-center gap-2 border border-red-500/40">
-                  <span>Submit Mess Feedback</span>
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                </button>
-                <button type="button" id="heroReportIssueBtn" class="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm sm:text-base border border-slate-600 transition flex items-center gap-2">
-                  <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                  <span>Report Food Issue</span>
-                </button>
-                <button type="button" id="heroViewWeeklyMenuBtn" class="px-4 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs sm:text-sm border border-slate-700 transition">
-                  Weekly Menu &rarr;
-                </button>
-              </div>
-
-              <!-- Trust Points -->
-              <div class="pt-2 flex flex-wrap items-center gap-6 text-xs text-slate-400">
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                  Anonymous or Identified Submission
-                </span>
-                <span class="flex items-center gap-1.5 text-amber-200 font-semibold">
-                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                  Approved: Hostel Head &amp; VGU Mess Administration
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                  100% Real Database Figures
-                </span>
-              </div>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-100/90 border border-red-200 text-[#800b1b] text-xs font-bold tracking-wide uppercase shadow-2xs">
+              <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+              Official Campus Dining Portal &bull; VGU Jaipur
             </div>
 
-            <!-- Right Column: 4K HD Running Campus Image Slider -->
-            <div class="lg:col-span-5">
-              <div id="vguHeroSliderContainer" class="rounded-2xl overflow-hidden border-2 border-red-700/60 shadow-2xl bg-slate-950 relative group">
-                <!-- Aspect ratio container for 4K visuals -->
-                <div class="relative w-full aspect-[16/10] sm:aspect-[16/11] bg-black overflow-hidden">
-                  
-                  <!-- Slide 0: Gate -->
-                  <div id="heroSlideItem-0" class="hero-slide-item absolute inset-0 w-full h-full opacity-100 scale-100 z-10 transition-all duration-700">
-                    <img id="heroSlideImg-0" src="" alt="VGU Main Entrance Gate" class="w-full h-full object-cover object-center" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                  </div>
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-[#800b1b] tracking-tight leading-tight">
+              Vivekananda Global University (VGU)
+              <span class="block text-xl sm:text-3xl lg:text-4xl mt-1 text-[#0f3d64] font-extrabold">
+                Mess Review &amp; Feedback Portal
+              </span>
+            </h1>
 
-                  <!-- Slide 1: Campus Aerial -->
-                  <div id="heroSlideItem-1" class="hero-slide-item absolute inset-0 w-full h-full opacity-0 pointer-events-none scale-105 z-0 transition-all duration-700">
-                    <img id="heroSlideImg-1" src="" alt="VGU Campus Aerial View" class="w-full h-full object-cover object-center" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                  </div>
+            <p class="text-base sm:text-xl font-bold text-[#0f3d64]">
+              Your Feedback. Better Food. A Better Campus Dining Experience.
+            </p>
 
-                  <!-- Slide 2: Dining Hall -->
-                  <div id="heroSlideItem-2" class="hero-slide-item absolute inset-0 w-full h-full opacity-0 pointer-events-none scale-105 z-0 transition-all duration-700">
-                    <img id="heroSlideImg-2" src="" alt="VGU Mess Dining Hall" class="w-full h-full object-cover object-center" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                  </div>
-
-                  <!-- Top Badges Overlay -->
-                  <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-20 pointer-events-none">
-                    <span class="px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur border border-slate-700 text-white font-bold text-[10px] tracking-wide uppercase shadow">
-                      🏛️ VGU JAIPUR CAMPUS
-                    </span>
-
-                  </div>
-
-                  <!-- Prev / Next Navigation Arrows -->
-                  <button type="button" id="vguHeroPrevSlideBtn" class="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-700 text-white border border-slate-700 hover:border-red-500 flex items-center justify-center transition shadow-lg opacity-80 group-hover:opacity-100" title="Previous Slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                  </button>
-                  <button type="button" id="vguHeroNextSlideBtn" class="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-700 text-white border border-slate-700 hover:border-red-500 flex items-center justify-center transition shadow-lg opacity-80 group-hover:opacity-100" title="Next Slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                  </button>
-
-                  <!-- Bottom Caption Overlay inside Slider Frame -->
-                  <div class="absolute bottom-2 left-3 right-3 z-20 flex items-end justify-between gap-2">
-                    <div class="bg-slate-950/80 backdrop-blur px-3 py-1.5 rounded-xl border border-slate-800 max-w-[80%]">
-                      <p id="vguHeroSlideCaptionTitle" class="text-xs font-bold text-white truncate">VGU &amp; VIT Campus Main Entrance Plaza</p>
-                      <p id="vguHeroSlideCaptionSub" class="text-[10px] text-slate-300 truncate">Sector 36, NRI Road, Jagatpura, Jaipur</p>
-                    </div>
-                    <button type="button" id="vguHeroZoomBtn" class="px-2.5 py-1.5 rounded-xl bg-red-700 hover:bg-red-600 text-white font-bold text-[10px] shadow transition shrink-0 flex items-center gap-1 border border-red-500/50" title="Inspect Photo in Fullscreen Lightbox">
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
-                      <span>View Photo</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Slider Indicators & Information Bar -->
-                <div class="p-3 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs">
-                  <!-- Dots -->
-                  <div class="flex items-center gap-1.5">
-                    <button type="button" id="vguSlideDot-0" class="w-7 h-2 rounded-full bg-red-600 transition-all duration-300" title="Slide 1"></button>
-                    <button type="button" id="vguSlideDot-1" class="w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300" title="Slide 2"></button>
-                    <button type="button" id="vguSlideDot-2" class="w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300" title="Slide 3"></button>
-                  </div>
-
-                  <span id="vguSlideCounter" class="font-mono text-[11px] text-slate-400 font-bold">01 / 03</span>
-
-                  <span class="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-400 font-bold text-[10px] border border-emerald-800/60">
-                    Hostel Dining Facilities
-                  </span>
-                </div>
-              </div>
-            </div>
+            <p class="text-xs sm:text-sm font-semibold text-slate-700 flex flex-wrap items-center justify-center gap-2 pt-0.5">
+              <span>Daily Meal Reviews</span>
+              <span class="text-slate-300 font-normal">|</span>
+              <span>Food Hygiene Reporting</span>
+              <span class="text-slate-300 font-normal">|</span>
+              <span>Quality Assurance</span>
+              <span class="text-slate-300 font-normal">|</span>
+              <span class="text-amber-700 font-bold">NAAC Grade 'A+' Accredited</span>
+            </p>
 
           </div>
+
+          <!-- Centerpiece: 4K HD Running Campus Image Showcase Card (Rounded, Shadowed, Featured like Image 2) -->
+          <div class="max-w-4xl mx-auto">
+            <div id="vguHeroSliderContainer" class="rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-red-100 shadow-xl bg-slate-950 relative group">
+              <!-- Aspect ratio container for 4K visuals -->
+              <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-black overflow-hidden">
+                
+                <!-- Slide 0: Gate -->
+                <div id="heroSlideItem-0" class="hero-slide-item absolute inset-0 w-full h-full opacity-100 scale-100 z-10 transition-all duration-700">
+                  <img id="heroSlideImg-0" src="" alt="VGU Main Entrance Gate" class="w-full h-full object-cover object-center" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+                </div>
+
+                <!-- Slide 1: Campus Aerial -->
+                <div id="heroSlideItem-1" class="hero-slide-item absolute inset-0 w-full h-full opacity-0 pointer-events-none scale-105 z-0 transition-all duration-700">
+                  <img id="heroSlideImg-1" src="" alt="VGU Campus Aerial View" class="w-full h-full object-cover object-center" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+                </div>
+
+                <!-- Slide 2: Dining Hall -->
+                <div id="heroSlideItem-2" class="hero-slide-item absolute inset-0 w-full h-full opacity-0 pointer-events-none scale-105 z-0 transition-all duration-700">
+                  <img id="heroSlideImg-2" src="" alt="VGU Mess Dining Hall" class="w-full h-full object-cover object-center" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+                </div>
+
+                <!-- Top Badges Overlay -->
+                <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-20 pointer-events-none">
+                  <span class="px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur border border-slate-700 text-white font-bold text-[10px] tracking-wide uppercase shadow">
+                    🏛️ VGU JAIPUR CAMPUS
+                  </span>
+                  <span class="px-2.5 py-1 rounded-full bg-red-900/80 backdrop-blur border border-red-700 text-amber-300 font-bold text-[10px]">
+                    Central Dining QA
+                  </span>
+                </div>
+
+                <!-- Prev / Next Navigation Arrows -->
+                <button type="button" id="vguHeroPrevSlideBtn" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-900/80 hover:bg-red-700 text-white border border-slate-700 hover:border-red-500 flex items-center justify-center transition shadow-lg opacity-85 group-hover:opacity-100" title="Previous Slide">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" id="vguHeroNextSlideBtn" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-900/80 hover:bg-red-700 text-white border border-slate-700 hover:border-red-500 flex items-center justify-center transition shadow-lg opacity-85 group-hover:opacity-100" title="Next Slide">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </button>
+
+                <!-- Bottom Caption Overlay inside Slider Frame -->
+                <div class="absolute bottom-3 left-3 right-3 z-20 flex items-end justify-between gap-2">
+                  <div class="bg-slate-950/85 backdrop-blur px-3.5 py-1.5 rounded-xl border border-slate-800 max-w-[80%]">
+                    <p id="vguHeroSlideCaptionTitle" class="text-xs font-bold text-white truncate">VGU &amp; VIT Campus Main Entrance Plaza</p>
+                    <p id="vguHeroSlideCaptionSub" class="text-[10px] text-slate-300 truncate">Sector 36, NRI Road, Jagatpura, Jaipur</p>
+                  </div>
+                  <button type="button" id="vguHeroZoomBtn" class="px-3 py-1.5 rounded-xl bg-red-700 hover:bg-red-600 text-white font-bold text-[10px] shadow transition shrink-0 flex items-center gap-1 border border-red-500/50" title="Inspect Photo in Fullscreen Lightbox">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                    <span>View Photo</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Slider Indicators & Information Bar -->
+              <div class="p-3 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs">
+                <!-- Dots -->
+                <div class="flex items-center gap-1.5">
+                  <button type="button" id="vguSlideDot-0" class="w-7 h-2 rounded-full bg-red-600 transition-all duration-300" title="Slide 1"></button>
+                  <button type="button" id="vguSlideDot-1" class="w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300" title="Slide 2"></button>
+                  <button type="button" id="vguSlideDot-2" class="w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300" title="Slide 3"></button>
+                </div>
+
+                <span id="vguSlideCounter" class="font-mono text-[11px] text-slate-400 font-bold">01 / 03</span>
+
+                <span class="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-400 font-bold text-[10px] border border-emerald-800/60">
+                  Hostel Dining Facilities
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- LIVE OPERATING MEAL TIMINGS (Clean Modern Institutional Dashboard Card) -->
+          <div class="max-w-4xl mx-auto bg-white rounded-2xl p-4 sm:p-5 border border-red-100 shadow-md">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#800b1b] flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Daily Mess Operating Hours
+                </span>
+              </div>
+              <span class="text-[11px] text-slate-500 font-medium">All Dining Halls &bull; Indian Standard Time</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <!-- Breakfast Card -->
+              <div id="heroTimingCard-Breakfast" class="p-2.5 rounded-xl border border-red-100 bg-red-50/40 hover:bg-red-50/70 transition-all duration-300 flex flex-col justify-between shadow-2xs">
+                <div>
+                  <div class="flex items-center justify-between gap-1 mb-1">
+                    <span class="text-[11px] font-bold text-slate-700">🍳 Breakfast</span>
+                    <span id="heroTimingBadge-Breakfast" class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-semibold text-[9px]">Slot</span>
+                  </div>
+                  <p class="text-xs font-black text-[#800b1b]">7:30 AM – 8:15 AM</p>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-1">Morning Service</p>
+              </div>
+
+              <!-- Lunch Card -->
+              <div id="heroTimingCard-Lunch" class="p-2.5 rounded-xl border border-red-100 bg-red-50/40 hover:bg-red-50/70 transition-all duration-300 flex flex-col justify-between shadow-2xs">
+                <div>
+                  <div class="flex items-center justify-between gap-1 mb-1">
+                    <span class="text-[11px] font-bold text-slate-700">🍛 Lunch</span>
+                    <span id="heroTimingBadge-Lunch" class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-semibold text-[9px]">Slot</span>
+                  </div>
+                  <p class="text-xs font-black text-[#800b1b]">12:00 PM – 1:50 PM</p>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-1">Afternoon Service</p>
+              </div>
+
+              <!-- Evening Snacks Card -->
+              <div id="heroTimingCard-Evening-Snacks" class="p-2.5 rounded-xl border border-red-100 bg-red-50/40 hover:bg-red-50/70 transition-all duration-300 flex flex-col justify-between shadow-2xs">
+                <div>
+                  <div class="flex items-center justify-between gap-1 mb-1">
+                    <span class="text-[11px] font-bold text-slate-700">☕ Snacks</span>
+                    <span id="heroTimingBadge-Evening-Snacks" class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-semibold text-[9px]">Slot</span>
+                  </div>
+                  <p class="text-xs font-black text-[#800b1b]">4:30 PM – 5:20 PM</p>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-1">Refreshment Tea</p>
+              </div>
+
+              <!-- Dinner Card -->
+              <div id="heroTimingCard-Dinner" class="p-2.5 rounded-xl border border-red-100 bg-red-50/40 hover:bg-red-50/70 transition-all duration-300 flex flex-col justify-between shadow-2xs">
+                <div>
+                  <div class="flex items-center justify-between gap-1 mb-1">
+                    <span class="text-[11px] font-bold text-slate-700">🍲 Dinner</span>
+                    <span id="heroTimingBadge-Dinner" class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-semibold text-[9px]">Slot</span>
+                  </div>
+                  <p class="text-xs font-black text-[#800b1b]">7:00 PM – 8:30 PM</p>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-1">Evening Service</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Action Buttons (Styled Exactly like Image 2's prominent rounded maroon buttons) -->
+          <div class="flex flex-wrap items-center justify-center gap-3.5 pt-1 max-w-2xl mx-auto">
+            <button type="button" id="heroSubmitFeedbackBtn" class="flex-1 sm:flex-none px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#9b1526] hover:bg-[#800b1b] text-white font-black text-sm sm:text-base shadow-md hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <span>Submit Mess Feedback</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+            <button type="button" id="heroReportIssueBtn" class="flex-1 sm:flex-none px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#9b1526] hover:bg-[#800b1b] text-white font-black text-sm sm:text-base shadow-md hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              <span>Report Food Issue</span>
+            </button>
+            <button type="button" id="heroViewWeeklyMenuBtn" class="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-white hover:bg-red-50 text-[#9b1526] font-bold text-sm sm:text-base border-2 border-[#9b1526] shadow-xs transition-all text-center">
+              Weekly Menu &rarr;
+            </button>
+          </div>
+
+          <!-- Approval Sub-caption (Directly matching "Admission Closing Soon." in Image 2) -->
+          <div class="text-center pt-2 space-y-1">
+            <p class="text-sm sm:text-base font-black text-[#800b1b] tracking-wide">
+              Mess Menu Approved by: <span class="underline decoration-amber-500 underline-offset-4 font-black">Hostel Head &amp; VGU Mess Administration</span>
+            </p>
+            <p class="text-xs text-slate-500 font-medium">
+              100% Genuine Database Records &bull; Anonymous or Verified Submissions Protected
+            </p>
+          </div>
+
         </div>
       </section>
       
-
-            <!-- ====================================================================== -->
-      <!-- SECTION: LIVE RUNNING SHOWCASE OF REAL VGU MESS MENU DISHES            -->
+<!-- SECTION: LIVE RUNNING SHOWCASE OF REAL VGU MESS MENU DISHES            -->
       <!-- ====================================================================== -->
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-gradient-to-br from-slate-900 via-[#0a192f] to-[#1e1b4b] text-white rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl overflow-hidden relative">
@@ -3656,17 +3652,17 @@
 
           if (card) {
             if (isCurrent) {
-              card.className = 'p-2.5 rounded-xl border border-emerald-500 bg-emerald-950/70 ring-2 ring-emerald-400/50 shadow-lg shadow-emerald-950/50 transition-all duration-300 flex flex-col justify-between';
+              card.className = 'p-2.5 rounded-xl border border-emerald-500 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-400/40 shadow-sm transition-all duration-300 flex flex-col justify-between';
             } else {
-              card.className = 'p-2.5 rounded-xl border border-red-900/80 bg-[#3d060e]/90 transition-all duration-300 flex flex-col justify-between';
+              card.className = 'p-2.5 rounded-xl border border-red-100 bg-red-50/40 hover:bg-red-50/70 transition-all duration-300 flex flex-col justify-between shadow-2xs';
             }
           }
           if (badge) {
             if (isCurrent) {
-              badge.className = 'px-1.5 py-0.5 rounded bg-emerald-500 text-slate-950 font-extrabold text-[9px] uppercase tracking-wider animate-pulse';
+              badge.className = 'px-1.5 py-0.5 rounded bg-emerald-600 text-white font-extrabold text-[9px] uppercase tracking-wider animate-pulse';
               badge.textContent = 'Active';
             } else {
-              badge.className = 'px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-semibold text-[9px]';
+              badge.className = 'px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-semibold text-[9px]';
               badge.textContent = 'Slot';
             }
           }
