@@ -42,6 +42,21 @@ if (fs.existsSync(publicPath)) {
   app.use(express.static(publicPath));
 }
 
+// SEO Static Routes
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain');
+  const p = path.join(__dirname, 'public', 'robots.txt');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.send("User-agent: *\nAllow: /\nSitemap: https://vgumessportal.vercel.app/sitemap.xml\n");
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  res.type('application/xml');
+  const p = path.join(__dirname, 'public', 'sitemap.xml');
+  if (fs.existsSync(p)) return res.sendFile(p);
+  res.status(404).send('Not Found');
+});
+
 // API Root Info Route
 app.get('/api', (req, res) => {
   res.json({

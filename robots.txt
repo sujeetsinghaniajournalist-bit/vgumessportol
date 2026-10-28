@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/admin/
+Disallow: /admin
+Disallow: /api/auth/
+
+Sitemap: https://vgumessportal.vercel.app/sitemap.xml
