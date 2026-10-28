@@ -2,7 +2,8 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#7a121d" />
   <title>VGU Mess Review & Feedback Portal | Vivekananda Global University, Jaipur</title>
   <meta name="description" content="Official Student Mess Food Review, Hygiene Reporting, Weekly Menu & Quality Analytics Portal for Vivekananda Global University (VGU), Jaipur, Rajasthan." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f172a'/%3E%3Cpath d='M14 18h8l10 26 10-26h8L35 50h-6L14 18z' fill='%23dc2626'/%3E%3C/svg%3E" />
@@ -31,6 +32,53 @@
     };
   </script>
   <style>
+    /* VGU Maroon Theme Variables */
+    :root {
+      --vgu-maroon: #7a121d;
+      --vgu-maroon-dark: #580a14;
+      --vgu-maroon-deep: #3b060d;
+      --vgu-maroon-light: #941b29;
+      --vgu-maroon-subtle: #fdf2f4;
+      --vgu-gold: #c59b27;
+      --vgu-gold-light: #fef3c7;
+    }
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #fbfbfa !important;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Mobile-first adjustments (phones without Desktop Mode) */
+    @media (max-width: 1023px) {
+      body {
+        padding-bottom: 76px !important; /* Space for floating bottom nav */
+      }
+      /* Prevent iOS auto-zoom on input focus */
+      input[type="text"], input[type="email"], input[type="tel"], input[type="password"], select, textarea {
+        font-size: 16px !important;
+      }
+      /* Comfortable touch target minimums */
+      button, a, input, select {
+        touch-action: manipulation;
+      }
+    }
+    /* Hide scrollbar for smooth horizontal touch swipe on mobile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Safe-area inset for modern iOS / Android phones */
+    .safe-bottom {
+      padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    }
+  
     body { font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #0f172a; }
     
     /* VGU Live Running Headline Marquee Animation */
@@ -111,6 +159,8 @@
   </div>
 
   <!-- SECTION 1: MODERN HEADER & NAVIGATION -->
+  <div class="h-1 bg-gradient-to-r from-[#40070e] via-[#7a121d] via-[#c59b27] to-[#7a121d] w-full no-print"></div>
+
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between min-h-[72px] sm:min-h-[78px] py-2 gap-3 lg:gap-4">
@@ -1210,7 +1260,7 @@
           </div>
 
           <!-- 7 Weekday Tabs -->
-          <div id="weekdayTabsContainer" role="tablist" aria-label="Weekdays" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2"></div>
+          <div id="weekdayTabsContainer" role="tablist" aria-label="Weekdays" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 sm:grid sm:grid-cols-4 lg:grid-cols-7 sm:gap-2"></div>
 
           <!-- 4 Meal Periods for Active Weekday -->
           <div id="weekdayMealCardsContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2"></div>
@@ -3325,10 +3375,7 @@
             '<div class="flex items-center gap-2">' +
               '<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>' +
               '<span class="font-extrabold text-slate-900 text-sm">Official VGU Mess Menu</span>' +
-              '<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[11px] font-bold">Approved by Mess Committee</span>' +
-            '</div>' +
-            '<div class="flex items-center gap-3 text-[11px] text-slate-500">' +
-              '<span><strong>Head:</strong> Sujeet Kumar (Mess Committee)</span>' +
+              '<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold border border-emerald-300 flex items-center gap-1.5 shadow-2xs"><svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mess Menu Approved by - Hostel Head &amp; VGU Mess Administration</span>' +
               '<span>&bull;</span>' +
               '<span>7 Days &times; 4 Meal Periods</span>' +
             '</div>' +
@@ -4494,7 +4541,7 @@
         }
 
         document.getElementById('brandHomeBtn').addEventListener('click', function() { switchView('home'); });
-        document.querySelectorAll('.nav-tab-btn, .mobile-nav-btn, .footer-nav-btn').forEach(function(btn) {
+        document.querySelectorAll('.nav-tab-btn, .mobile-nav-btn, .footer-nav-btn, .mobile-bottom-nav-btn').forEach(function(btn) {
           btn.addEventListener('click', function() {
             const target = btn.getAttribute('data-nav');
             if (target) switchView(target);
@@ -5694,5 +5741,31 @@
       });
     })();
   </script>
+  <!-- MOBILE FLOATING APP-STYLE BOTTOM NAVIGATION (Mobile-First Experience) -->
+  <nav aria-label="Mobile Bottom Navigation" class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-2 py-1.5 flex items-center justify-around safe-bottom no-print">
+    <button type="button" data-nav="home" class="mobile-bottom-nav-btn flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl text-xs text-[#7a121d] font-black transition focus:outline-none">
+      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      <span class="text-[10px] leading-tight font-bold">Home</span>
+    </button>
+    <button type="button" data-nav="menu" class="mobile-bottom-nav-btn flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl text-xs text-slate-500 font-medium transition focus:outline-none">
+      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+      <span class="text-[10px] leading-tight">Menu</span>
+    </button>
+    <button type="button" data-nav="feedback" class="mobile-bottom-nav-btn flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl text-xs text-slate-500 font-medium transition focus:outline-none">
+      <div class="relative">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        <span class="w-2 h-2 rounded-full bg-amber-500 absolute -top-0.5 -right-0.5 animate-pulse"></span>
+      </div>
+      <span class="text-[10px] leading-tight">Feedback</span>
+    </button>
+    <button type="button" data-nav="issue" class="mobile-bottom-nav-btn flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl text-xs text-slate-500 font-medium transition focus:outline-none">
+      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      <span class="text-[10px] leading-tight">Issue</span>
+    </button>
+    <button type="button" data-nav="admin" class="mobile-bottom-nav-btn flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl text-xs text-slate-500 font-medium transition focus:outline-none">
+      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+      <span class="text-[10px] leading-tight">Admin</span>
+    </button>
+  </nav>
 </body>
 </html>
