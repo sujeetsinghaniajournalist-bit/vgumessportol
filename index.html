@@ -6428,19 +6428,213 @@
       }
 
       // Initialize Portal on Load
+      
+      // =====================================================================
+      // 5-OFFICIAL ADMINISTRATIVE GOVERNANCE SYSTEM
+      // =====================================================================
+      function initOfficialsConfig() {
+        if (!db.config) db.config = {};
+        if (!db.config.officials) {
+          db.config.officials = {
+            proctor: {
+              name: 'Dr. Pramod Kumar',
+              title: 'University Proctor',
+              role: '👑 Super Admin — Proctor (Dr. Pramod Kumar)',
+              email: 'pramod_kumar@vgu.ac.in',
+              active: true,
+              isSuperAdmin: true
+            },
+            messManager: {
+              name: 'Mess Manager',
+              title: 'VGU Mess Operations Manager',
+              role: '🍽️ Mess Operations Manager',
+              email: '',
+              active: false
+            },
+            hostelHead: {
+              name: 'Hostel Head',
+              title: 'VGU Hostel Head Administration',
+              role: '🏢 Hostel Head Administration',
+              email: '',
+              active: false
+            },
+            chiefWarden: {
+              name: 'Chief Warden',
+              title: 'Chief Hostel Warden',
+              role: '🛡️ Chief Hostel Warden',
+              email: '',
+              active: false
+            },
+            messCommitteeHead: {
+              name: 'Sujeet Kumar',
+              title: 'Mess Committee Head & Portal Lead',
+              role: '👔 Mess Committee Head (Sujeet Kumar)',
+              email: AUTHORIZED_ADMIN_EMAIL,
+              active: true
+            }
+          };
+          saveDatabase();
+        }
+      }
+
+      function renderAdminOfficials() {
+        initOfficialsConfig();
+        const off = (db.config && db.config.officials) ? db.config.officials : {};
+
+        // Populate Mess Manager
+        const inpMess = document.getElementById('inputEmail_messManager');
+        const badgeMess = document.getElementById('badge_messManager');
+        if (inpMess && off.messManager) {
+          inpMess.value = off.messManager.email || '';
+          if (badgeMess) {
+            badgeMess.textContent = off.messManager.email ? '● Configured' : '○ Optional';
+            badgeMess.className = off.messManager.email
+              ? 'px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300 shrink-0'
+              : 'px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border border-slate-300 shrink-0';
+          }
+        }
+
+        // Populate Hostel Head
+        const inpHostel = document.getElementById('inputEmail_hostelHead');
+        const badgeHostel = document.getElementById('badge_hostelHead');
+        if (inpHostel && off.hostelHead) {
+          inpHostel.value = off.hostelHead.email || '';
+          if (badgeHostel) {
+            badgeHostel.textContent = off.hostelHead.email ? '● Configured' : '○ Optional';
+            badgeHostel.className = off.hostelHead.email
+              ? 'px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300 shrink-0'
+              : 'px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border border-slate-300 shrink-0';
+          }
+        }
+
+        // Populate Chief Warden
+        const inpWarden = document.getElementById('inputEmail_chiefWarden');
+        const badgeWarden = document.getElementById('badge_chiefWarden');
+        if (inpWarden && off.chiefWarden) {
+          inpWarden.value = off.chiefWarden.email || '';
+          if (badgeWarden) {
+            badgeWarden.textContent = off.chiefWarden.email ? '● Configured' : '○ Optional';
+            badgeWarden.className = off.chiefWarden.email
+              ? 'px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300 shrink-0'
+              : 'px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border border-slate-300 shrink-0';
+          }
+        }
+      }
+
+      function setupOfficialsListeners() {
+        initOfficialsConfig();
+
+        // Authority dropdown in Login Modal changes email field
+        const authSel = document.getElementById('adminAuthoritySelect');
+        const emailInput = document.getElementById('adminLoginEmail');
+        if (authSel && emailInput) {
+          authSel.addEventListener('change', function() {
+            const val = authSel.value;
+            const off = (db.config && db.config.officials) ? db.config.officials : {};
+            if (val === 'superadmin') {
+              emailInput.value = 'pramod_kumar@vgu.ac.in';
+              emailInput.placeholder = 'pramod_kumar@vgu.ac.in';
+            } else if (val === 'sujeet') {
+              emailInput.value = 'sujeetsinghaniajournalist@gmail.com';
+              emailInput.placeholder = 'sujeetsinghaniajournalist@gmail.com';
+            } else if (val === 'messmanager') {
+              emailInput.value = (off.messManager && off.messManager.email) || '';
+              emailInput.placeholder = 'Enter Mess Manager Email...';
+            } else if (val === 'hostelhead') {
+              emailInput.value = (off.hostelHead && off.hostelHead.email) || '';
+              emailInput.placeholder = 'Enter Hostel Head Email...';
+            } else if (val === 'chiefwarden') {
+              emailInput.value = (off.chiefWarden && off.chiefWarden.email) || '';
+              emailInput.placeholder = 'Enter Chief Warden Email...';
+            }
+          });
+        }
+
+        // Save Mess Manager Email
+        const btnMess = document.getElementById('btnSave_messManager');
+        if (btnMess) {
+          btnMess.addEventListener('click', function() {
+            const inp = document.getElementById('inputEmail_messManager');
+            const val = (inp ? inp.value : '').trim();
+            if (db.config && db.config.officials && db.config.officials.messManager) {
+              db.config.officials.messManager.email = val;
+              db.config.officials.messManager.active = !!val;
+              saveDatabase();
+              db.auditLogs.unshift({
+                timestampIst: formatIstNow(),
+                actor: currentAdminUser.email || 'Admin',
+                action: 'OFFICIAL_EMAIL_CONFIGURED',
+                details: 'Mess Manager official email set to: ' + (val || 'Cleared (None)')
+              });
+              renderAdminOfficials();
+              showToast('Email Updated', 'Mess Manager email successfully saved!', false);
+            }
+          });
+        }
+
+        // Save Hostel Head Email
+        const btnHostel = document.getElementById('btnSave_hostelHead');
+        if (btnHostel) {
+          btnHostel.addEventListener('click', function() {
+            const inp = document.getElementById('inputEmail_hostelHead');
+            const val = (inp ? inp.value : '').trim();
+            if (db.config && db.config.officials && db.config.officials.hostelHead) {
+              db.config.officials.hostelHead.email = val;
+              db.config.officials.hostelHead.active = !!val;
+              saveDatabase();
+              db.auditLogs.unshift({
+                timestampIst: formatIstNow(),
+                actor: currentAdminUser.email || 'Admin',
+                action: 'OFFICIAL_EMAIL_CONFIGURED',
+                details: 'Hostel Head official email set to: ' + (val || 'Cleared (None)')
+              });
+              renderAdminOfficials();
+              showToast('Email Updated', 'Hostel Head email successfully saved!', false);
+            }
+          });
+        }
+
+        // Save Chief Warden Email
+        const btnWarden = document.getElementById('btnSave_chiefWarden');
+        if (btnWarden) {
+          btnWarden.addEventListener('click', function() {
+            const inp = document.getElementById('inputEmail_chiefWarden');
+            const val = (inp ? inp.value : '').trim();
+            if (db.config && db.config.officials && db.config.officials.chiefWarden) {
+              db.config.officials.chiefWarden.email = val;
+              db.config.officials.chiefWarden.active = !!val;
+              saveDatabase();
+              db.auditLogs.unshift({
+                timestampIst: formatIstNow(),
+                actor: currentAdminUser.email || 'Admin',
+                action: 'OFFICIAL_EMAIL_CONFIGURED',
+                details: 'Chief Warden official email set to: ' + (val || 'Cleared (None)')
+              });
+              renderAdminOfficials();
+              showToast('Email Updated', 'Chief Warden email successfully saved!', false);
+            }
+          });
+        }
+      }
+
+      // Initialize Portal on Load
       window.addEventListener('DOMContentLoaded', function() {
-        renderBrandingLogo();
-        initCampusVisuals();
-        setupOfficialsListeners();
-        checkMongoBackendHealth().then(function(online) { if (online) syncMenuFromMongo(); });
-        setInterval(checkMongoBackendHealth, 15000);
-        updateLiveMealTimingsUi();
-        setInterval(updateLiveMealTimingsUi, 10000);
-        initEvents();
-        renderHomeStatistics();
-        renderWeeklyMenuViews();
-        renderWeekdayTabs();
-        renderActiveWeekdayMeals();
+        try { renderBrandingLogo(); } catch(e) { console.error('Logo render error:', e); }
+        try { initCampusVisuals(); } catch(e) { console.error('Visuals init error:', e); }
+        try { setupOfficialsListeners(); } catch(e) { console.error('Officials init error:', e); }
+        try {
+          checkMongoBackendHealth().then(function(online) { if (online) syncMenuFromMongo(); });
+          setInterval(checkMongoBackendHealth, 15000);
+        } catch(e) {}
+        try {
+          updateLiveMealTimingsUi();
+          setInterval(updateLiveMealTimingsUi, 10000);
+        } catch(e) {}
+        try { initEvents(); } catch(e) { console.error('Events init error:', e); }
+        try { renderHomeStatistics(); } catch(e) { console.error('Stats render error:', e); }
+        try { renderWeeklyMenuViews(); } catch(e) { console.error('Menu render error:', e); }
+        try { renderWeekdayTabs(); } catch(e) { console.error('Weekday tabs error:', e); }
+        try { renderActiveWeekdayMeals(); } catch(e) { console.error('Active meals error:', e); }
       });
     })();
   </script>
