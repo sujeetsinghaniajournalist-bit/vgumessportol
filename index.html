@@ -2180,6 +2180,10 @@
             <span>6. 🛡️ Google Authenticator (2FA) Security</span>
             <span id="adminSubtab2FaBadge" class="px-1.5 py-0.5 rounded text-[10px] font-black uppercase bg-slate-200 text-slate-700">OFF</span>
           </button>
+          <button type="button" data-admintab="officials" class="admin-subtab-btn px-4 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-1.5">
+            <span>7. 👥 Administrative Officials (5 Persons)</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-black uppercase bg-red-100 text-[#800b1b]">5 Roles</span>
+          </button>
         </div>
 
         <!-- ADMIN SUBVIEW 1: OVERVIEW KPI CARDS & COMPLAINT MANAGEMENT -->
@@ -6032,12 +6036,15 @@
         document.querySelectorAll('.admin-subtab-btn').forEach(function(btn) {
           btn.addEventListener('click', function() {
             const target = btn.getAttribute('data-admintab');
-            ['overview', 'analytics', 'menu-mgr', 'email-logs', 'audit-config', 'security-2fa'].forEach(function(t) {
+            ['overview', 'analytics', 'menu-mgr', 'email-logs', 'audit-config', 'security-2fa', 'officials'].forEach(function(t) {
               const el = document.getElementById('admintab-' + t);
               if (el) el.classList.toggle('hidden', t !== target);
             });
             if (target === 'analytics' && typeof renderAnalyticsView === 'function') {
               renderAnalyticsView();
+            }
+            if (target === 'officials' && typeof renderAdminOfficials === 'function') {
+              renderAdminOfficials();
             }
             document.querySelectorAll('.admin-subtab-btn').forEach(function(b) {
               const active = b.getAttribute('data-admintab') === target;
