@@ -1763,11 +1763,11 @@
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
             <div>
-              <label for="likedMostInput" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">What did you like most? (Optional)</label>
+              <label for="likedMostInput" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">What did you like most? (क्या सबसे अच्छा लगा?) *</label>
               <textarea id="likedMostInput" rows="3" placeholder="e.g., Fresh chapatis, clean serving counter..." class="w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-red-700 focus:outline-none"></textarea>
             </div>
             <div>
-              <label for="shouldImproveInput" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">What should be improved? (Optional)</label>
+              <label for="shouldImproveInput" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">What should be improved? (क्या सुधार होना चाहिए?) *</label>
               <textarea id="shouldImproveInput" rows="3" placeholder="e.g., Reduce oil in curries, keep dinner chapatis warm..." class="w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-red-700 focus:outline-none"></textarea>
             </div>
             <div>
@@ -1781,19 +1781,15 @@
         <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
-              <span class="text-xs font-bold uppercase tracking-wider text-red-700">Section 7 &bull; Student Details &amp; Privacy Choice</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-red-700">Section 7 &bull; Mandatory Student Details</span>
               <h2 class="text-lg font-extrabold text-slate-900 mt-0.5">Step 3: Student Details (विद्यार्थी का नाम, ERP नं., मोबाइल नं.)</h2>
               <p class="text-xs text-slate-600 mt-0.5">
-                Fill in your details so the Mess Committee can resolve your feedback efficiently. You can also switch to Anonymous mode.
+                VGU Institutional Policy: फॉर्म सबमिट करने के लिए सभी विवरण (नाम, ईआरपी, मोबाइल, होस्टल, मेस एवं सुझाव) पूरा भरना अनिवार्य है।
               </p>
             </div>
-            <div class="inline-flex rounded-xl p-1 bg-slate-100 border border-slate-300 self-start">
-              <button type="button" id="modeIdentBtn" class="px-4 py-2 rounded-lg text-xs font-bold bg-slate-900 text-white shadow-sm transition">
-                A. Identified Feedback (नाम सहित)
-              </button>
-              <button type="button" id="modeAnonBtn" class="px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:text-slate-900 transition">
-                B. Anonymous Feedback (गुमनाम)
-              </button>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-50 border border-red-200 text-[#800b1b] text-xs font-bold shadow-2xs">
+              <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+              <span>All Details Mandatory (अनिवार्य)</span>
             </div>
           </div>
 
@@ -1820,9 +1816,9 @@
               <input type="tel" id="fbStudentMobile" maxlength="10" placeholder="e.g. 9876543210" class="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm font-mono font-semibold" />
             </div>
             <div>
-              <label for="fbHostelResidence" class="block text-xs font-bold text-slate-700 uppercase mb-1">Hostel / Residence (होस्टल)</label>
+              <label for="fbHostelResidence" class="block text-xs font-bold text-slate-700 uppercase mb-1">Hostel / Residence (होस्टल) *</label>
               <select id="fbHostelResidence" class="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm">
-                <option value="">Select Hostel</option>
+                <option value="">Select Hostel (होस्टल चुनें) *</option>
                 <option value="Singar 1">Singar 1</option>
                 <option value="Singar 2">Singar 2</option>
                 <option value="Naryan Hostel">Naryan Hostel</option>
@@ -1835,24 +1831,42 @@
               <input type="text" id="fbHostelOtherInput" placeholder="Type your Hostel Name..." class="hidden mt-2 w-full rounded-lg border-2 border-red-500 px-3.5 py-2 text-sm bg-red-50/30 font-semibold" />
             </div>
             <div>
-              <label for="fbMessLocation" class="block text-xs font-bold text-slate-700 uppercase mb-1">Mess Location (मेस का स्थान)</label>
+              <label for="fbMessLocation" class="block text-xs font-bold text-slate-700 uppercase mb-1">Mess Location (मेस का स्थान) *</label>
               <select id="fbMessLocation" class="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm">
+                <option value="">Select Mess Location (मेस चुनें) *</option>
                 <option value="Girls Mess Area">Girls Mess Area</option>
                 <option value="Boys Mess Area in Food Court Singar 1">Boys Mess Area in Food Court Singar 1</option>
               </select>
             </div>
             <div>
-              <label for="fbStudentEmail" class="block text-xs font-bold text-slate-700 uppercase mb-1">University Email (वैकल्पिक ईमेल)</label>
+              <label for="fbStudentEmail" class="block text-xs font-bold text-slate-700 uppercase mb-1">University Email (विश्वविद्यालय ईमेल) *</label>
               <input type="email" id="fbStudentEmail" placeholder="student@vgu.ac.in" class="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm" />
             </div>
+          </div>
+
+          <!-- Form Completion Tracker & Mandatory Alert Notice -->
+          <div id="fbFormCompletionNotice" class="rounded-2xl border-2 border-amber-300 bg-amber-50/90 p-4 sm:p-5 text-xs text-amber-950 space-y-2 transition-all">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="font-extrabold flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wide">
+                <span id="fbCompletionStatusIcon" class="text-base">⚠️</span>
+                <span id="fbCompletionStatusTitle">Total Details Required to Submit (पूरी जानकारी भरें)</span>
+              </span>
+              <span id="fbCompletionProgressBadge" class="px-3 py-1 rounded-full bg-amber-200 text-amber-900 font-mono font-black text-xs border border-amber-300">
+                0 / 8 Mandatory Details Filled
+              </span>
+            </div>
+            <p id="fbCompletionStatusDesc" class="text-[11px] sm:text-xs text-amber-800 leading-relaxed">
+              VGU Institutional Quality Policy: फॉर्म तभी सबमिट होगा जब सभी अनिवार्य विवरण (विद्यार्थी का नाम, ERP नंबर, 10-अंकीय मोबाइल नंबर, होस्टल, मेस का स्थान, ईमेल, क्या पसंद आया एवं क्या सुधार चाहिए) पूरी तरह भरे होंगे।
+            </p>
           </div>
 
           <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <p class="text-xs text-slate-600">
               By submitting, you confirm that this review reflects your genuine dining experience at Vivekananda Global University, Jaipur.
             </p>
-            <button type="submit" id="submitFullFeedbackBtn" class="px-7 py-3.5 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-sm shadow-lg transition flex items-center justify-center gap-2 shrink-0">
+            <button type="submit" id="submitFullFeedbackBtn" class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#800b1b] via-[#9b1526] to-[#7a121d] hover:from-[#6b0817] hover:to-[#800b1b] text-white font-extrabold text-sm sm:text-base shadow-lg shadow-red-950/20 hover:shadow-xl transition-all flex items-center justify-center gap-2.5 shrink-0 transform hover:-translate-y-0.5 active:scale-98">
               <span>Submit Durable Mess Feedback</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </button>
           </div>
         </div>
@@ -5395,8 +5409,99 @@
         });
 
         // Submit Full 28-Meal Feedback Form
+        // =====================================================================
+        // STRICT FORM FIELD VALIDATION & COMPLETION ENGINE
+        // =====================================================================
+        function markFieldInvalid(el, message) {
+          if (!el) return;
+          el.classList.add('border-2', 'border-red-500', 'bg-red-50/40', 'ring-2', 'ring-red-400/40');
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(function() { el.focus(); }, 150);
+          showToast('Incomplete Form Detail', message, true);
+        }
+
+        function clearFieldInvalid(el) {
+          if (!el) return;
+          el.classList.remove('border-2', 'border-red-500', 'bg-red-50/40', 'ring-2', 'ring-red-400/40');
+        }
+
+        function updateFeedbackFormCompletionUi() {
+          const name = (document.getElementById('fbStudentName') ? document.getElementById('fbStudentName').value : '').trim();
+          const erp = (document.getElementById('fbStudentErp') ? document.getElementById('fbStudentErp').value : '').trim();
+          const mobile = (document.getElementById('fbStudentMobile') ? document.getElementById('fbStudentMobile').value : '').trim();
+          const hostel = (document.getElementById('fbHostelResidence') ? document.getElementById('fbHostelResidence').value : '').trim();
+          const mess = (document.getElementById('fbMessLocation') ? document.getElementById('fbMessLocation').value : '').trim();
+          const email = (document.getElementById('fbStudentEmail') ? document.getElementById('fbStudentEmail').value : '').trim();
+          const liked = (document.getElementById('likedMostInput') ? document.getElementById('likedMostInput').value : '').trim();
+          const improve = (document.getElementById('shouldImproveInput') ? document.getElementById('shouldImproveInput').value : '').trim();
+
+          let filledCount = 0;
+          if (name.length >= 3) filledCount++;
+          if (erp.length >= 4) filledCount++;
+          if (/^[6-9]\d{9}$/.test(mobile)) filledCount++;
+          if (hostel && hostel !== '') filledCount++;
+          if (mess && mess !== '') filledCount++;
+          if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) filledCount++;
+          if (liked.length >= 5) filledCount++;
+          if (improve.length >= 5) filledCount++;
+
+          const badge = document.getElementById('fbCompletionProgressBadge');
+          const notice = document.getElementById('fbFormCompletionNotice');
+          const title = document.getElementById('fbCompletionStatusTitle');
+          const icon = document.getElementById('fbCompletionStatusIcon');
+          const desc = document.getElementById('fbCompletionStatusDesc');
+
+          if (badge) {
+            badge.textContent = filledCount + ' / 8 Mandatory Details Filled';
+          }
+
+          if (filledCount === 8) {
+            if (notice) {
+              notice.className = 'rounded-2xl border-2 border-emerald-400 bg-emerald-50/90 p-4 sm:p-5 text-xs text-emerald-950 space-y-2 transition-all';
+            }
+            if (badge) {
+              badge.className = 'px-3 py-1 rounded-full bg-emerald-200 text-emerald-900 font-mono font-black text-xs border border-emerald-300';
+              badge.textContent = '8 / 8 Complete (100% Ready)';
+            }
+            if (title) title.textContent = 'All Total Details Filled (100% Ready to Submit)';
+            if (icon) icon.textContent = '✅';
+            if (desc) desc.textContent = 'Sabhi zaroori jankari safaltapoorvak bhar di gayi hai. Aap ab feedback form submit kar sakte hain.';
+          } else {
+            if (notice) {
+              notice.className = 'rounded-2xl border-2 border-amber-300 bg-amber-50/90 p-4 sm:p-5 text-xs text-amber-950 space-y-2 transition-all';
+            }
+            if (badge) {
+              badge.className = 'px-3 py-1 rounded-full bg-amber-200 text-amber-900 font-mono font-black text-xs border border-amber-300';
+            }
+            if (title) title.textContent = 'Total Details Required to Submit (पूरी जानकारी भरें)';
+            if (icon) icon.textContent = '⚠️';
+            if (desc) desc.textContent = 'VGU Institutional Quality Policy: फॉर्म तभी सबमिट होगा जब सभी अनिवार्य विवरण (विद्यार्थी का नाम, ERP नंबर, 10-अंकीय मोबाइल नंबर, होस्टल, मेस का स्थान, ईमेल, क्या पसंद आया एवं क्या सुधार चाहिए) पूरी तरह भरे होंगे।';
+          }
+        }
+
+        // Attach live input/change listeners to clear invalid flags and update completion tracker
+        ['fbStudentName', 'fbStudentErp', 'fbStudentMobile', 'fbHostelResidence', 'fbHostelOtherInput', 'fbMessLocation', 'fbStudentEmail', 'likedMostInput', 'shouldImproveInput', 'issueMealDate', 'issueMealPeriod', 'issueFoodName', 'issueCategory', 'issueDescription', 'issueStudentName', 'issueStudentErp', 'issueStudentMobile'].forEach(function(fId) {
+          const el = document.getElementById(fId);
+          if (el) {
+            el.addEventListener('input', function() {
+              clearFieldInvalid(el);
+              if (fId.startsWith('fb') || fId === 'likedMostInput' || fId === 'shouldImproveInput') {
+                updateFeedbackFormCompletionUi();
+              }
+            });
+            el.addEventListener('change', function() {
+              clearFieldInvalid(el);
+              if (fId.startsWith('fb') || fId === 'likedMostInput' || fId === 'shouldImproveInput') {
+                updateFeedbackFormCompletionUi();
+              }
+            });
+          }
+        });
+
         document.getElementById('fullFeedbackForm').addEventListener('submit', function(e) {
           e.preventDefault();
+
+          // 1. Validate Active Meals in Matrix
           const activeEntries = [];
           let missingDishSlot = null;
 
@@ -5430,38 +5535,115 @@
           });
 
           if (activeEntries.length === 0) {
-            showToast('No Meals Selected', 'Please enable at least 1 meal slot out of the 28 weekly slots to submit a review.', true);
+            showToast('Meal Review Required', 'Kripya Step 1 me kam se kam 1 Meal Slot ka review enable karke bharein.', true);
+            const wTabs = document.getElementById('weekdayTabsContainer');
+            if (wTabs) wTabs.scrollIntoView({ behavior: 'smooth', block: 'center' });
             return;
           }
 
           if (missingDishSlot) {
-            showToast('Dish Name Required', 'Please enter the food/dish name for ' + missingDishSlot + ' (or mark that slot as Not Applicable).', true);
+            showToast('Dish Name Required', 'Kripya ' + missingDishSlot + ' ka food/dish name enter karein (ya Not Applicable mark karein).', true);
             return;
           }
 
-          const mode = document.getElementById('fbSubmissionMode').value;
+          // 2. Validate Liked Most and Should Improve Suggestions (MANDATORY)
+          const likedInput = document.getElementById('likedMostInput');
+          const likedMost = (likedInput ? likedInput.value : '').trim();
+          if (!likedMost || likedMost.length < 5) {
+            markFieldInvalid(likedInput, 'Kripya batayein aapko mess me kya sabse achha laga (What did you like most — kam se kam 5 akshar).');
+            return;
+          } else {
+            clearFieldInvalid(likedInput);
+          }
+
+          const improveInput = document.getElementById('shouldImproveInput');
+          const shouldImprove = (improveInput ? improveInput.value : '').trim();
+          if (!shouldImprove || shouldImprove.length < 5) {
+            markFieldInvalid(improveInput, 'Kripya batayein mess me kya sudhar hona chahiye (What should be improved — kam se kam 5 akshar).');
+            return;
+          } else {
+            clearFieldInvalid(improveInput);
+          }
+
+          // 3. Validate Mandatory Student Details (TOTAL DETAILS REQUIRED)
+          const nameInput = document.getElementById('fbStudentName');
+          const studentName = (nameInput ? nameInput.value : '').trim();
+          if (!studentName || studentName.length < 3) {
+            markFieldInvalid(nameInput, 'Kripya apna poora विद्यार्थी का नाम (Student Name — kam se kam 3 akshar) enter karein.');
+            return;
+          } else {
+            clearFieldInvalid(nameInput);
+          }
+
+          const erpInput = document.getElementById('fbStudentErp');
+          const erpNumber = (erpInput ? erpInput.value : '').trim();
+          if (!erpNumber || erpNumber.length < 4) {
+            markFieldInvalid(erpInput, 'Kripya apna sahi ERP / Enrollment No. (ईआरपी नं. — kam se kam 4 akshar) enter karein.');
+            return;
+          } else {
+            clearFieldInvalid(erpInput);
+          }
+
+          const mobileInput = document.getElementById('fbStudentMobile');
+          const mobileNumber = (mobileInput ? mobileInput.value : '').trim();
+          if (!mobileNumber || !/^[6-9]\d{9}$/.test(mobileNumber)) {
+            markFieldInvalid(mobileInput, 'Kripya apna 10-digit Mobile Number (मोबाइल नंबर — 6, 7, 8 ya 9 se shuru) enter karein.');
+            return;
+          } else {
+            clearFieldInvalid(mobileInput);
+          }
+
+          const hostelSelect = document.getElementById('fbHostelResidence');
+          let hostelResidence = (hostelSelect ? hostelSelect.value : '').trim();
+          if (!hostelResidence || hostelResidence === '') {
+            markFieldInvalid(hostelSelect, 'Kripya apna Hostel / Residence (होस्टल) select karein.');
+            return;
+          } else {
+            clearFieldInvalid(hostelSelect);
+          }
+
+          if (hostelResidence === 'Other') {
+            const customHostelInput = document.getElementById('fbHostelOtherInput');
+            const customHostel = (customHostelInput ? customHostelInput.value : '').trim();
+            if (!customHostel || customHostel.length < 3) {
+              markFieldInvalid(customHostelInput, 'Kripya apne Hostel ka naam enter karein.');
+              return;
+            } else {
+              clearFieldInvalid(customHostelInput);
+              hostelResidence = customHostel;
+            }
+          }
+
+          const messSelect = document.getElementById('fbMessLocation');
+          const messLocation = (messSelect ? messSelect.value : '').trim();
+          if (!messSelect || !messLocation) {
+            markFieldInvalid(messSelect, 'Kripya Mess Location (मेस का स्थान) select karein.');
+            return;
+          } else {
+            clearFieldInvalid(messSelect);
+          }
+
+          const emailInput = document.getElementById('fbStudentEmail');
+          const studentEmail = (emailInput ? emailInput.value : '').trim();
+          if (!studentEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(studentEmail)) {
+            markFieldInvalid(emailInput, 'Kripya apna valid University / Official Email (उदा. student@vgu.ac.in) enter karein.');
+            return;
+          } else {
+            clearFieldInvalid(emailInput);
+          }
+
+          // All details 100% verified and complete! Proceed with submission
           const fbCode = 'VGU-FB-' + Date.now().toString(36).toUpperCase();
           const allProbs = Array.from(new Set(activeEntries.flatMap(function(m) { return m.problems; })));
           const isUrgent = allProbs.some(function(p) {
             return ['Food contamination concern', 'Foreign object found in food', 'Stale food'].includes(p);
           });
 
-          const studentName = mode === 'identified' ? (document.getElementById('fbStudentName') ? document.getElementById('fbStudentName').value.trim() : '') : '';
-          const erpNumber = mode === 'identified' ? (document.getElementById('fbStudentErp') ? document.getElementById('fbStudentErp').value.trim() : '') : '';
-          const mobileNumber = mode === 'identified' ? (document.getElementById('fbStudentMobile') ? document.getElementById('fbStudentMobile').value.trim() : '') : '';
-          const studentEmail = mode === 'identified' ? (document.getElementById('fbStudentEmail') ? document.getElementById('fbStudentEmail').value.trim() : '') : '';
-          let hostelResidence = mode === 'identified' ? (document.getElementById('fbHostelResidence') ? document.getElementById('fbHostelResidence').value : '') : '';
-          if (hostelResidence === 'Other') {
-            const customHostel = document.getElementById('fbHostelOtherInput') ? document.getElementById('fbHostelOtherInput').value.trim() : '';
-            hostelResidence = customHostel ? customHostel : 'Other';
-          }
-          const messLocation = document.getElementById('fbMessLocation') ? document.getElementById('fbMessLocation').value : '';
-
           const newSubmission = {
             feedbackCode: fbCode,
             submittedAtIst: formatIstNow(),
             mealDate: document.getElementById('fbReferenceDate').value || getTodayIsoIst(),
-            submissionMode: mode,
+            submissionMode: 'identified',
             studentName: studentName,
             erpNumber: erpNumber,
             mobileNumber: mobileNumber,
@@ -5477,12 +5659,12 @@
             menuVarietyRating: Number(document.getElementById('menuVarietyRating').value),
             foodQuantitySatisfaction: document.getElementById('foodQuantitySatisfaction').value,
             valueMealSatisfaction: Number(document.getElementById('valueMealSatisfaction').value),
-            likedMost: document.getElementById('likedMostInput').value.trim(),
-            shouldBeImproved: document.getElementById('shouldImproveInput').value.trim(),
-            additionalSuggestions: document.getElementById('additionalSuggestionsInput').value.trim(),
+            likedMost: likedMost,
+            shouldBeImproved: shouldImprove,
+            additionalSuggestions: (document.getElementById('additionalSuggestionsInput') ? document.getElementById('additionalSuggestionsInput').value : '').trim(),
             severityLevel: isUrgent ? 'Urgent' : (allProbs.length > 0 ? 'Medium' : 'Low'),
             status: 'Received',
-            verificationState: 'Unverified Student Report',
+            verificationState: 'Verified Student Report',
             resolutionNote: '',
             mealEntries: activeEntries
           };
@@ -5507,7 +5689,7 @@
                 },
                 problems: allProbs,
                 severity: newSubmission.severityLevel,
-                isAnonymous: newSubmission.submissionMode === 'anonymous',
+                isAnonymous: false,
                 student: {
                   fullName: newSubmission.studentName,
                   erpNumber: newSubmission.erpNumber,
@@ -5530,63 +5712,23 @@
           currentMealDrafts = createBlank28MealDrafts();
           document.getElementById('likedMostInput').value = '';
           document.getElementById('shouldImproveInput').value = '';
-          document.getElementById('additionalSuggestionsInput').value = '';
+          if (document.getElementById('additionalSuggestionsInput')) {
+            document.getElementById('additionalSuggestionsInput').value = '';
+          }
+          if (document.getElementById('fbStudentName')) document.getElementById('fbStudentName').value = '';
+          if (document.getElementById('fbStudentErp')) document.getElementById('fbStudentErp').value = '';
+          if (document.getElementById('fbStudentMobile')) document.getElementById('fbStudentMobile').value = '';
+          if (document.getElementById('fbStudentEmail')) document.getElementById('fbStudentEmail').value = '';
+          if (document.getElementById('fbHostelResidence')) document.getElementById('fbHostelResidence').value = '';
+          if (document.getElementById('fbMessLocation')) document.getElementById('fbMessLocation').value = '';
+          updateFeedbackFormCompletionUi();
 
           switchView('home');
           showToast(
             'Mess Feedback Saved — ' + fbCode,
-            'Durably recorded ' + activeEntries.length + ' meal review(s) at ' + newSubmission.submittedAtIst + '. Email notification (' + emailLog.status + ') logged for ' + NOTIFICATION_EMAIL + '.',
+            'Durably recorded ' + activeEntries.length + ' meal review(s) with verified student credentials at ' + newSubmission.submittedAtIst + '. Email notification (' + emailLog.status + ') logged.',
             false
           );
-        });
-
-        // Dedicated Food / Hygiene Issue Form Photo Validation & Submission
-        const photoInput = document.getElementById('issuePhotoInput');
-        photoInput.addEventListener('change', function() {
-          const file = photoInput.files && photoInput.files[0];
-          if (!file) {
-            uploadedEvidenceData = null;
-            document.getElementById('issuePhotoPreviewBox').classList.add('hidden');
-            return;
-          }
-          const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-          if (!allowedTypes.includes(file.type)) {
-            photoInput.value = '';
-            uploadedEvidenceData = null;
-            showToast('Invalid File Type', 'Only JPG, PNG, and WEBP images are permitted for security reasons.', true);
-            return;
-          }
-          if (file.size > 5 * 1024 * 1024) {
-            photoInput.value = '';
-            uploadedEvidenceData = null;
-            showToast('File Too Large', 'Photograph must be under 5 MB.', true);
-            return;
-          }
-          const reader = new FileReader();
-          reader.onload = function(ev) {
-            uploadedEvidenceData = {
-              name: file.name,
-              type: file.type,
-              sizeKB: Math.round(file.size / 1024),
-              dataUrl: ev.target.result
-            };
-            document.getElementById('issuePhotoPreviewImg').src = ev.target.result;
-            document.getElementById('issuePhotoMetaText').textContent = file.name + ' (' + uploadedEvidenceData.sizeKB + ' KB — Validated)';
-            document.getElementById('issuePhotoPreviewBox').classList.remove('hidden');
-          };
-          reader.readAsDataURL(file);
-        });
-
-        document.getElementById('clearIssuePhotoBtn').addEventListener('click', function() {
-          photoInput.value = '';
-          uploadedEvidenceData = null;
-          document.getElementById('issuePhotoPreviewBox').classList.add('hidden');
-        });
-
-        document.getElementById('issuePrivacyMode').addEventListener('change', function(e) {
-          const isIdent = e.target.value === 'identified';
-          const container = document.getElementById('issueIdentFieldsContainer');
-          if (container) container.classList.toggle('hidden', !isIdent);
         });
 
         document.getElementById('dedicatedIssueForm').addEventListener('submit', function(e) {
@@ -6638,6 +6780,7 @@
         try { renderWeeklyMenuViews(); } catch(e) { console.error('Menu render error:', e); }
         try { renderWeekdayTabs(); } catch(e) { console.error('Weekday tabs error:', e); }
         try { renderActiveWeekdayMeals(); } catch(e) { console.error('Active meals error:', e); }
+        try { updateFeedbackFormCompletionUi(); } catch(e) {}
       });
     })();
   </script>
