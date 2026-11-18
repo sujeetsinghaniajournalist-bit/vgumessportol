@@ -4487,6 +4487,9 @@
         renderAdminMenuManager();
         renderAdminEmailLogs();
         renderAdminAuditAndConfig();
+        if (typeof renderAdminOfficials === 'function') {
+          renderAdminOfficials();
+        }
       }
 
       function getCombinedAdminRecords() {
@@ -4553,9 +4556,9 @@
 
       function renderAdminOverviewKpisAndTable() {
         if (!adminAuthenticated) {
-          const tbody = document.getElementById('admSubmissionsTableBody');
+          const tbody = document.getElementById('adminRecordsTableBody');
           if (tbody) {
-            tbody.innerHTML = '<tr><td colspan="7" class="py-12 text-center text-xs font-bold text-slate-500 bg-slate-50"><span class="text-base block mb-1">🔒</span>Student feedback records are strictly password-protected. Please enter your administrator password to unlock.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="8" class="py-12 text-center text-xs font-bold text-slate-500 bg-slate-50"><span class="text-base block mb-1">🔒</span>Student feedback records are strictly password-protected. Please enter your administrator password to unlock.</td></tr>';
           }
           return;
         }
@@ -5393,20 +5396,26 @@
 
         const modeAnonBtn = document.getElementById('modeAnonBtn');
         const modeIdentBtn = document.getElementById('modeIdentBtn');
-        modeAnonBtn.addEventListener('click', function() {
-          document.getElementById('fbSubmissionMode').value = 'anonymous';
-          modeAnonBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-slate-900 text-white shadow-sm transition';
-          modeIdentBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:text-slate-900 transition';
-          document.getElementById('anonPrivacyExplainer').classList.remove('hidden');
-          document.getElementById('identifiedFieldsContainer').classList.add('hidden');
-        });
-        modeIdentBtn.addEventListener('click', function() {
-          document.getElementById('fbSubmissionMode').value = 'identified';
-          modeIdentBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-slate-900 text-white shadow-sm transition';
-          modeAnonBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:text-slate-900 transition';
-          document.getElementById('anonPrivacyExplainer').classList.add('hidden');
-          document.getElementById('identifiedFieldsContainer').classList.remove('hidden');
-        });
+        if (modeAnonBtn && modeIdentBtn) {
+          modeAnonBtn.addEventListener('click', function() {
+            document.getElementById('fbSubmissionMode').value = 'anonymous';
+            modeAnonBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-slate-900 text-white shadow-sm transition';
+            modeIdentBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:text-slate-900 transition';
+            const anonExp = document.getElementById('anonPrivacyExplainer');
+            if (anonExp) anonExp.classList.remove('hidden');
+            const identCont = document.getElementById('identifiedFieldsContainer');
+            if (identCont) identCont.classList.add('hidden');
+          });
+          modeIdentBtn.addEventListener('click', function() {
+            document.getElementById('fbSubmissionMode').value = 'identified';
+            modeIdentBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-slate-900 text-white shadow-sm transition';
+            modeAnonBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:text-slate-900 transition';
+            const anonExp = document.getElementById('anonPrivacyExplainer');
+            if (anonExp) anonExp.classList.add('hidden');
+            const identCont = document.getElementById('identifiedFieldsContainer');
+            if (identCont) identCont.classList.remove('hidden');
+          });
+        }
 
         // Submit Full 28-Meal Feedback Form
         // =====================================================================
@@ -5856,7 +5865,7 @@
               email: 'sujeetsinghaniajournalist@gmail.com',
               role: 'Operational QA Admin (Sujeet Kumar)',
               isSuperAdmin: false,
-              canEdit: false,
+              canEdit: true,
               individualPass: (off.messCommitteeHead && off.messCommitteeHead.password) ? off.messCommitteeHead.password.trim() : ''
             };
           }
@@ -5867,7 +5876,7 @@
               email: off.messManager.email,
               role: 'Mess Operations Manager',
               isSuperAdmin: false,
-              canEdit: false,
+              canEdit: true,
               individualPass: (off.messManager.password || '').trim()
             };
           }
@@ -5878,7 +5887,7 @@
               email: off.hostelHead.email,
               role: 'Hostel Head Administration',
               isSuperAdmin: false,
-              canEdit: false,
+              canEdit: true,
               individualPass: (off.hostelHead.password || '').trim()
             };
           }
@@ -5889,7 +5898,7 @@
               email: off.chiefWarden.email,
               role: 'Chief Hostel Warden',
               isSuperAdmin: false,
-              canEdit: false,
+              canEdit: true,
               individualPass: (off.chiefWarden.password || '').trim()
             };
           }
@@ -6025,8 +6034,20 @@
               const el = document.getElementById('admintab-' + t);
               if (el) el.classList.toggle('hidden', t !== target);
             });
+            if (target === 'overview' && typeof renderAdminOverviewKpisAndTable === 'function') {
+              renderAdminOverviewKpisAndTable();
+            }
             if (target === 'analytics' && typeof renderAnalyticsView === 'function') {
               renderAnalyticsView();
+            }
+            if (target === 'menu-mgr' && typeof renderAdminMenuManager === 'function') {
+              renderAdminMenuManager();
+            }
+            if (target === 'email-logs' && typeof renderAdminEmailLogs === 'function') {
+              renderAdminEmailLogs();
+            }
+            if (target === 'audit-config' && typeof renderAdminAuditAndConfig === 'function') {
+              renderAdminAuditAndConfig();
             }
             if (target === 'officials' && typeof renderAdminOfficials === 'function') {
               renderAdminOfficials();
