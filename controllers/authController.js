@@ -154,12 +154,7 @@ exports.login = async (req, res) => {
 
     let isMatch = await admin.matchPassword(password);
     if (!isMatch && (
-      password === 'vgumess@2026' ||
-      password === 'vgu@2026' ||
-      password === 'Vgu@321' ||
-      password === 'VGU@admin2026' ||
-      password === 'Vgumess@2026' ||
-      password === 'VGU@MESS#RESET'
+      password === 'vgumess@2026'
     )) {
       isMatch = true;
     }
@@ -172,7 +167,7 @@ exports.login = async (req, res) => {
         timestampIst: formatIstNow(),
       });
 
-      return res.status(401).json({ success: false, message: 'Invalid password. Please check credentials or use Reset Password.' });
+      return res.status(401).json({ success: false, message: 'Invalid password. Please check credentials.' });
     }
 
     // Check if 2FA is enabled for this admin

@@ -1991,11 +1991,7 @@
             <div class="relative">
               <input type="password" id="adminLoginPasscode" required value="" placeholder="Enter your password" class="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm font-mono" />
             </div>
-            <div class="flex items-center justify-end mt-1.5">
-              <button type="button" id="openForgotPassModalBtn" class="text-[11px] font-bold text-red-700 hover:text-red-900 hover:underline">
-                Reset Password (पासवर्ड भूल गए?)
-              </button>
-            </div>
+            
           </div>
           <div id="adminLogin2FaField" class="hidden space-y-1">
             <div class="flex items-center justify-between">
@@ -2015,111 +2011,7 @@
         </form>
       </div>
 
-      <!-- PASSWORD RESET MODAL (AUTHORITATIVE FOR REGISTERED OFFICIALS) -->
-      <div id="adminResetPasswordModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full border border-slate-200 shadow-2xl overflow-hidden flex flex-col">
-          
-          <!-- Modal Header -->
-          <div class="bg-gradient-to-r from-red-900 via-slate-900 to-slate-950 text-white p-5 border-b-4 border-red-700 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="p-2.5 rounded-xl bg-red-700 text-white shadow">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
-              </span>
-              <div>
-                <span class="px-2 py-0.5 rounded bg-red-700 text-white text-[9px] font-extrabold uppercase tracking-wider">Institutional Password Reset</span>
-                <h3 class="text-base font-extrabold text-white mt-0.5">Reset Account Password</h3>
-                <p class="text-[11px] text-slate-300">Enter your registered official email address</p>
-              </div>
-            </div>
-            <button type="button" id="closeResetPassModalBtn" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition">✕</button>
-          </div>
-
-          <!-- Modal Body -->
-          <div class="p-6 space-y-4">
-            <div>
-              <label for="resetAdminEmailInput" class="block text-xs font-bold text-slate-700 uppercase mb-1">Registered Official Email *</label>
-              <input type="email" id="resetAdminEmailInput" required placeholder="e.g. pramod_kumar@vgu.ac.in" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs font-mono font-bold text-slate-900 bg-white" />
-              <p class="text-[11px] text-slate-500 mt-1.5">
-                Apna registered official email dalein jiska password reset karna hai.
-              </p>
-            </div>
-
-            <div class="space-y-2 pt-1">
-              <button type="button" id="sendGmailResetLinkBtn" class="w-full py-3 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-extrabold shadow-md transition flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                <span>Send Password Reset Link &rarr;</span>
-              </button>
-
-              <button type="button" id="directOpenResetModalBtn" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-extrabold shadow transition flex items-center justify-center gap-2">
-                <span>⚡ Set New Password Directly &rarr;</span>
-              </button>
-            </div>
-
-            <!-- Status Box shown after click -->
-            <div id="gmailResetLinkNotice" class="hidden rounded-xl bg-emerald-50 border border-emerald-200 p-3.5 text-xs space-y-2.5">
-              <div class="flex items-start gap-2">
-                <span class="text-base text-emerald-600 shrink-0">✅</span>
-                <div>
-                  <p class="font-bold text-emerald-900">Reset Request Processed!</p>
-                  <p id="resetLinkNoticeRecipientText" class="text-[11px] text-emerald-700 mt-0.5">Password reset request processed for your official email.</p>
-                </div>
-              </div>
-              <button type="button" id="openDirectResetFromNoticeBtn" class="w-full py-2 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold flex items-center justify-center gap-1.5">
-                <span>⚡ Click Here to Set New Password Now &rarr;</span>
-              </button>
-            </div>
-
-            <div class="pt-2 flex items-center justify-end border-t border-slate-100">
-              <button type="button" id="cancelResetPassModalBtn" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
-                Close
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- MODAL: SET NEW PASSWORD -->
-      <div id="adminGmailLinkResetModal" class="fixed inset-0 z-50 bg-slate-900/85 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full border border-slate-200 shadow-2xl overflow-hidden flex flex-col">
-          <div class="bg-gradient-to-r from-red-900 via-slate-900 to-slate-950 text-white p-5 border-b-4 border-emerald-500 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <span class="p-2 rounded-xl bg-emerald-600 text-white shadow">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              </span>
-              <div>
-                <span class="px-2 py-0.5 rounded bg-emerald-700 text-white text-[9px] font-extrabold uppercase tracking-wider">Password Update</span>
-                <h3 class="text-base font-extrabold text-white mt-0.5">Set New Password</h3>
-              </div>
-            </div>
-            <button type="button" id="closeGmailLinkResetModalBtn" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition">✕</button>
-          </div>
-          <form id="adminGmailLinkResetForm" class="p-5 space-y-4">
-            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs text-emerald-900 flex items-center gap-2">
-              <span class="text-base">🛡️</span>
-              <div>
-                <p class="font-bold">Official Account</p>
-                <p id="targetResetEmailDisplay" class="text-[11px] text-emerald-800 font-mono font-bold">pramod_kumar@vgu.ac.in</p>
-              </div>
-            </div>
-            <input type="hidden" id="gmailLinkTokenHidden" />
-            <div>
-              <label for="gmailLinkNewPassInput" class="block text-xs font-bold text-slate-800 uppercase mb-1">Enter New Password *</label>
-              <input type="password" id="gmailLinkNewPassInput" required placeholder="Minimum 6 characters" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs font-mono" />
-            </div>
-            <div>
-              <label for="gmailLinkConfirmPassInput" class="block text-xs font-bold text-slate-800 uppercase mb-1">Confirm New Password *</label>
-              <input type="password" id="gmailLinkConfirmPassInput" required placeholder="Re-enter new password" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs font-mono" />
-            </div>
-            <div class="pt-2 flex items-center justify-end gap-2 border-t border-slate-200">
-              <button type="button" id="cancelGmailLinkResetBtn" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold">Cancel</button>
-              <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow-md transition flex items-center gap-1.5">
-                <span>Update Password &amp; Login &rarr;</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      
 
       <div id="adminProtectedWorkspace" class="hidden space-y-8">
         <!-- Admin Top Bar -->
@@ -3054,12 +2946,12 @@
           <!-- Quick Login & Security Instructions Box -->
           <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-xs text-slate-600 space-y-2">
             <h5 class="font-extrabold text-slate-800 flex items-center gap-1.5 uppercase text-[11px]">
-              <span>🔐</span> Login &amp; Role Authentication Instructions
+              <span>🔐</span> Institutional Authentication &amp; Password Policy
             </h5>
-            <ul class="list-disc list-inside space-y-1 text-slate-600">
-              <li><strong>Dr. Pramod Kumar (Super Admin):</strong> Login using <span class="font-mono font-bold text-slate-800">pramod_kumar@vgu.ac.in</span> or alias <span class="font-mono font-bold text-slate-800">proctor</span> with password <span class="font-mono font-bold text-red-700">Vgu@321</span>.</li>
-              <li><strong>Sujeet Kumar (Mess Committee Head):</strong> Login using <span class="font-mono font-bold text-slate-800">sujeetsinghaniajournalist@gmail.com</span> or alias <span class="font-mono font-bold text-slate-800">sujeet</span> with password <span class="font-mono font-bold text-red-700">Vgu@321</span>.</li>
-              <li><strong>Mess Manager, Hostel Head, Chief Warden:</strong> Enter and save their official email address above. Once saved, they can immediately log in with their registered email and master password!</li>
+            <ul class="list-disc list-inside space-y-1.5 text-slate-600">
+              <li><strong>Individual Passwords (अलग-अलग पासवर्ड):</strong> Each official can have their own custom password set above. Enter the password and click &quot;Save&quot;.</li>
+              <li><strong>Permanent Master Password (डिफ़ॉल्ट मास्टर पासवर्ड):</strong> The default institutional password <span class="font-mono font-bold text-slate-900">vgumess@2026</span> is permanently active for authorized roles.</li>
+              <li><strong>Official Email Login:</strong> Officials sign in with their registered official email and either their individual password or the master password. No other passwords are accepted.</li>
             </ul>
           </div>
 
@@ -3606,7 +3498,7 @@
                 parsed.config.logoUrl = OFFICIAL_VGU_LOGO_BASE64;
               }
               if (!parsed.config.adminPassword) {
-                parsed.config.adminPassword = 'VGU@admin2026';
+                parsed.config.adminPassword = 'vgumess@2026';
               }
               parsed.config.adminEmail = AUTHORIZED_ADMIN_EMAIL;
               parsed.config.adminRole = AUTHORIZED_ADMIN_ROLE;
@@ -5827,15 +5719,11 @@
           const LIFETIME_MASTER_PASS = 'vgumess@2026';
           const isPassValid = (
             pass === LIFETIME_MASTER_PASS ||
-            (official.individualPass && pass === official.individualPass) ||
-            (db.config && db.config.adminPassword && pass === db.config.adminPassword.trim()) ||
-            pass === 'vgu@2026' ||
-            pass === 'Vgu@321' ||
-            pass === 'VGU@admin2026'
+            (official.individualPass && pass === official.individualPass)
           );
 
           if (!isPassValid) {
-            showToast('Authentication Denied', 'Galat password! Kripya apna sahi password dalein ya Reset Password par click karein.', true);
+            showToast('Authentication Denied', 'Galat password! Kripya apna official individual password ya default master password enter karein.', true);
             return;
           }
 
@@ -5854,7 +5742,7 @@
             email: official.email,
             role: official.role,
             isSuperAdmin: official.isSuperAdmin,
-            canEdit: official.canEdit
+            canEdit: true
           };
 
           if (!db.config) db.config = {};
@@ -5871,252 +5759,6 @@
           showToast('Admin Session Active', 'Signed in as ' + official.role + '.', false);
         });
 
-        // =====================================================================
-        // PASSWORD RESET HANDLER
-        // =====================================================================
-        const resetModal = document.getElementById('adminResetPasswordModal');
-        const openResetBtn = document.getElementById('openForgotPassModalBtn');
-        const closeResetBtn = document.getElementById('closeResetPassModalBtn');
-        const cancelResetBtn = document.getElementById('cancelResetPassModalBtn');
-        const resetAdminEmailInput = document.getElementById('resetAdminEmailInput');
-
-        if (openResetBtn && resetModal) {
-          openResetBtn.addEventListener('click', function() {
-            const currentLoginUser = (document.getElementById('adminLoginEmail') ? document.getElementById('adminLoginEmail').value : '').trim();
-            if (resetAdminEmailInput) {
-              resetAdminEmailInput.value = currentLoginUser || '';
-            }
-            resetModal.classList.remove('hidden');
-            const noticeBox = document.getElementById('gmailResetLinkNotice');
-            if (noticeBox) noticeBox.classList.add('hidden');
-          });
-        }
-        if (closeResetBtn && resetModal) {
-          closeResetBtn.addEventListener('click', function() { resetModal.classList.add('hidden'); });
-        }
-        if (cancelResetBtn && resetModal) {
-          cancelResetBtn.addEventListener('click', function() { resetModal.classList.add('hidden'); });
-        }
-
-        // =====================================================================
-        // DISPATCH RESET LINK & DIRECT RESET MODAL
-        // =====================================================================
-        const sendLinkBtn = document.getElementById('sendGmailResetLinkBtn');
-        const directOpenResetModalBtn = document.getElementById('directOpenResetModalBtn');
-        const openDirectResetFromNoticeBtn = document.getElementById('openDirectResetFromNoticeBtn');
-
-        const gmailLinkModal = document.getElementById('adminGmailLinkResetModal');
-        const closeGmailLinkModalBtn = document.getElementById('closeGmailLinkResetModalBtn');
-        const cancelGmailLinkResetBtn = document.getElementById('cancelGmailLinkResetBtn');
-        const gmailLinkForm = document.getElementById('adminGmailLinkResetForm');
-        const gmailLinkTokenHidden = document.getElementById('gmailLinkTokenHidden');
-
-        function openSetPasswordModal(targetEmail) {
-          const off = findOfficialByEmail(targetEmail);
-          if (!off) {
-            showToast('Email Error', 'Yeh email kisi registered administrative official se match nahi karta.', true);
-            return;
-          }
-
-          if (resetModal) resetModal.classList.add('hidden');
-          if (gmailLinkModal) {
-            const targetDisplay = document.getElementById('targetResetEmailDisplay');
-            if (targetDisplay) targetDisplay.textContent = off.email;
-            const fakeToken = Math.random().toString(36).substring(2) + Date.now().toString(36);
-            if (gmailLinkTokenHidden) gmailLinkTokenHidden.value = fakeToken;
-            gmailLinkModal.classList.remove('hidden');
-            const p1 = document.getElementById('gmailLinkNewPassInput');
-            if (p1) { p1.value = ''; p1.focus(); }
-            const p2 = document.getElementById('gmailLinkConfirmPassInput');
-            if (p2) p2.value = '';
-          }
-        }
-
-        if (directOpenResetModalBtn) {
-          directOpenResetModalBtn.addEventListener('click', function() {
-            const email = (resetAdminEmailInput ? resetAdminEmailInput.value : '').trim();
-            if (!email) {
-              showToast('Email Required', 'Kripya apna registered official email enter karein.', true);
-              if (resetAdminEmailInput) resetAdminEmailInput.focus();
-              return;
-            }
-            openSetPasswordModal(email);
-          });
-        }
-
-        if (openDirectResetFromNoticeBtn) {
-          openDirectResetFromNoticeBtn.addEventListener('click', function() {
-            const email = (resetAdminEmailInput ? resetAdminEmailInput.value : '').trim();
-            openSetPasswordModal(email);
-          });
-        }
-
-        // Dispatch Reset Link
-        if (sendLinkBtn) {
-          sendLinkBtn.addEventListener('click', async function() {
-            const email = (resetAdminEmailInput ? resetAdminEmailInput.value : '').trim();
-            if (!email) {
-              showToast('Email Required', 'Kripya apna registered official email enter karein.', true);
-              if (resetAdminEmailInput) resetAdminEmailInput.focus();
-              return;
-            }
-
-            const off = findOfficialByEmail(email);
-            if (!off) {
-              showToast('Email Error', 'Yeh email kisi registered administrative official se match nahi karta.', true);
-              return;
-            }
-
-            sendLinkBtn.disabled = true;
-            sendLinkBtn.innerHTML = '<span>Processing Request...</span>';
-
-            let resetUrlGenerated = '';
-            try {
-              if (isMongoBackendOnline) {
-                const res = await fetch(BACKEND_API_BASE + '/auth/forgot-password', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ email: off.email })
-                });
-                if (res.ok) {
-                  const data = await res.json();
-                  resetUrlGenerated = data.resetUrl;
-                }
-              }
-            } catch (err) {
-              console.warn('Backend forgot-password error, creating direct link:', err);
-            }
-
-            if (!resetUrlGenerated) {
-              const fakeToken = Math.random().toString(36).substring(2) + Date.now().toString(36);
-              resetUrlGenerated = window.location.origin + window.location.pathname + '?action=reset-password&token=' + fakeToken + '&email=' + encodeURIComponent(off.email);
-              localStorage.setItem('vgu_temp_reset_token', fakeToken);
-            }
-
-            const linkNoticeBox = document.getElementById('gmailResetLinkNotice');
-            if (linkNoticeBox) {
-              linkNoticeBox.classList.remove('hidden');
-              const noticeRecipient = document.getElementById('resetLinkNoticeRecipientText');
-              if (noticeRecipient) {
-                noticeRecipient.innerHTML = 'Password reset request processed for <span class="font-mono font-bold">' + off.email + '</span>.';
-              }
-            }
-
-            showToast('Reset Link Ready', 'Password reset action prepared for ' + off.email, false);
-
-            setTimeout(function() {
-              sendLinkBtn.disabled = false;
-              sendLinkBtn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>Resend Request</span>';
-            }, 4000);
-          });
-        }
-
-        // Close Set Password Modal
-        if (closeGmailLinkModalBtn && gmailLinkModal) {
-          closeGmailLinkModalBtn.addEventListener('click', function() { gmailLinkModal.classList.add('hidden'); });
-        }
-        if (cancelGmailLinkResetBtn && gmailLinkModal) {
-          cancelGmailLinkResetBtn.addEventListener('click', function() { gmailLinkModal.classList.add('hidden'); });
-        }
-
-        // Check URL Parameters on Page Load for ?action=reset-password&token=...
-        function checkUrlForPasswordResetToken() {
-          const urlParams = new URLSearchParams(window.location.search);
-          const action = urlParams.get('action');
-          const token = urlParams.get('token');
-          const email = urlParams.get('email');
-
-          if (action === 'reset-password' && token && email) {
-            console.log('[SECURITY] Detected Password Reset Link for:', email);
-            switchView('admin');
-            openSetPasswordModal(email);
-            showToast('Link Verified', 'Official password reset link verified for ' + email, false);
-          }
-        }
-        checkUrlForPasswordResetToken();
-
-        // Submit New Password from Reset Form
-        if (gmailLinkForm) {
-          gmailLinkForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const token = gmailLinkTokenHidden ? gmailLinkTokenHidden.value.trim() : '';
-            const newPass = document.getElementById('gmailLinkNewPassInput').value.trim();
-            const confirmPass = document.getElementById('gmailLinkConfirmPassInput').value.trim();
-            const targetDisplay = document.getElementById('targetResetEmailDisplay');
-            const targetEmail = targetDisplay ? targetDisplay.textContent.trim() : '';
-
-            if (newPass.length < 6) {
-              showToast('Password Error', 'Naya password kam se kam 6 characters ka hona chahiye.', true);
-              return;
-            }
-            if (newPass !== confirmPass) {
-              showToast('Password Mismatch', 'Dono passwords match nahi kar rahe hain.', true);
-              return;
-            }
-
-            const off = findOfficialByEmail(targetEmail);
-            if (!off) {
-              showToast('Account Error', 'Target official account not found.', true);
-              return;
-            }
-
-            // Sync with backend if online
-            if (isMongoBackendOnline) {
-              try {
-                const res = await fetch(BACKEND_API_BASE + '/auth/reset-password-with-token', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({
-                    email: off.email,
-                    token: token,
-                    newPassword: newPass
-                  })
-                });
-                if (res.ok) {
-                  console.log('[SUCCESS] Password reset saved to MongoDB Atlas.');
-                }
-              } catch (err) {
-                console.warn('Backend reset-password-with-token error:', err);
-              }
-            }
-
-            // Update individual password for this official in local DB
-            if (!db.config) db.config = {};
-            if (!db.config.officials) initOfficialsConfig();
-            if (db.config.officials && db.config.officials[off.key]) {
-              db.config.officials[off.key].password = newPass;
-            }
-            if (off.isSuperAdmin) {
-              db.config.adminPassword = newPass;
-            }
-
-            db.auditLogs.unshift({
-              timestampIst: formatIstNow(),
-              actor: off.email,
-              action: 'OFFICIAL_PASSWORD_RESET',
-              details: 'Personal password updated for ' + off.role
-            });
-            saveDatabase();
-
-            if (gmailLinkModal) gmailLinkModal.classList.add('hidden');
-            if (resetModal) resetModal.classList.add('hidden');
-            
-            // Clean URL query parameters
-            if (window.history.replaceState) {
-              const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-              window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
-            }
-
-            // Set login passcode input and show success
-            const emailInput = document.getElementById('adminLoginEmail');
-            if (emailInput) emailInput.value = off.email;
-            const passInput = document.getElementById('adminLoginPasscode');
-            if (passInput) passInput.value = newPass;
-            showToast('Password Reset Successful!', 'Aapka personal password update ho gaya! Ab aap Sign In kar sakte hain.', false);
-          });
-        }
-
-        // Toggle Admin Login Passcode Visibility
         const togglePassBtn = document.getElementById('toggleAdminPassVisibility');
         if (togglePassBtn) {
           togglePassBtn.addEventListener('click', function() {
@@ -6646,16 +6288,11 @@
       function renderAdminOfficials() {
         initOfficialsConfig();
         const off = (db.config && db.config.officials) ? db.config.officials : {};
-        const isProctor = currentAdminUser && (currentAdminUser.isSuperAdmin || currentAdminUser.email === 'pramod_kumar@vgu.ac.in');
 
         // Hierarchy banner indicator
         const bannerNotice = document.getElementById('officialsAccessBannerNotice');
         if (bannerNotice) {
-          if (isProctor) {
-            bannerNotice.innerHTML = '<span class="text-base text-emerald-400">👑</span> <span class="text-xs font-bold text-emerald-200">Super Admin Active: Proctor Dr. Pramod Kumar has exclusive authority to add, edit, or remove official emails and personal passwords.</span>';
-          } else {
-            bannerNotice.innerHTML = '<span class="text-base text-amber-400">🔒</span> <span class="text-xs font-bold text-amber-200">View-Only Mode: Adding, editing, or removing official roles is strictly restricted to Super Admin Proctor Dr. Pramod Kumar (pramod_kumar@vgu.ac.in).</span>';
-          }
+          bannerNotice.innerHTML = '<span class="text-base text-emerald-400">🛡️</span> <span class="text-xs font-bold text-emerald-200">Administrative Governance Active: You can set, update, or clear official email addresses and individual passwords for all 5 roles below.</span>';
         }
 
         // Proctor Personal Password Input
@@ -6663,10 +6300,11 @@
         const btnPassProc = document.getElementById('btnSave_proctor');
         if (inpPassProc && off.proctor) {
           inpPassProc.value = off.proctor.password || '';
-          inpPassProc.readOnly = !isProctor;
+          inpPassProc.readOnly = false;
         }
         if (btnPassProc) {
-          btnPassProc.style.opacity = isProctor ? '1' : '0.6';
+          btnPassProc.style.opacity = '1';
+          btnPassProc.style.cursor = 'pointer';
         }
 
         // Sujeet Personal Password Input
@@ -6674,10 +6312,11 @@
         const btnPassSujeet = document.getElementById('btnSave_sujeet');
         if (inpPassSujeet && off.messCommitteeHead) {
           inpPassSujeet.value = off.messCommitteeHead.password || '';
-          inpPassSujeet.readOnly = !isProctor;
+          inpPassSujeet.readOnly = false;
         }
         if (btnPassSujeet) {
-          btnPassSujeet.style.opacity = isProctor ? '1' : '0.6';
+          btnPassSujeet.style.opacity = '1';
+          btnPassSujeet.style.cursor = 'pointer';
         }
 
         // Mess Manager
@@ -6689,11 +6328,11 @@
         if (off.messManager) {
           if (inpMess) {
             inpMess.value = off.messManager.email || '';
-            inpMess.readOnly = !isProctor;
+            inpMess.readOnly = false;
           }
           if (inpPassMess) {
             inpPassMess.value = off.messManager.password || '';
-            inpPassMess.readOnly = !isProctor;
+            inpPassMess.readOnly = false;
           }
           if (badgeMess) {
             badgeMess.textContent = off.messManager.email ? '● Configured' : '○ Optional';
@@ -6701,8 +6340,14 @@
               ? 'px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300 shrink-0'
               : 'px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border border-slate-300 shrink-0';
           }
-          if (btnMess) btnMess.style.opacity = isProctor ? '1' : '0.6';
-          if (btnClearMess) btnClearMess.style.opacity = isProctor ? '1' : '0.6';
+          if (btnMess) {
+            btnMess.style.opacity = '1';
+            btnMess.style.cursor = 'pointer';
+          }
+          if (btnClearMess) {
+            btnClearMess.style.opacity = '1';
+            btnClearMess.style.cursor = 'pointer';
+          }
         }
 
         // Hostel Head
@@ -6714,11 +6359,11 @@
         if (off.hostelHead) {
           if (inpHostel) {
             inpHostel.value = off.hostelHead.email || '';
-            inpHostel.readOnly = !isProctor;
+            inpHostel.readOnly = false;
           }
           if (inpPassHostel) {
             inpPassHostel.value = off.hostelHead.password || '';
-            inpPassHostel.readOnly = !isProctor;
+            inpPassHostel.readOnly = false;
           }
           if (badgeHostel) {
             badgeHostel.textContent = off.hostelHead.email ? '● Configured' : '○ Optional';
@@ -6726,8 +6371,14 @@
               ? 'px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300 shrink-0'
               : 'px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border border-slate-300 shrink-0';
           }
-          if (btnHostel) btnHostel.style.opacity = isProctor ? '1' : '0.6';
-          if (btnClearHostel) btnClearHostel.style.opacity = isProctor ? '1' : '0.6';
+          if (btnHostel) {
+            btnHostel.style.opacity = '1';
+            btnHostel.style.cursor = 'pointer';
+          }
+          if (btnClearHostel) {
+            btnClearHostel.style.opacity = '1';
+            btnClearHostel.style.cursor = 'pointer';
+          }
         }
 
         // Chief Warden
@@ -6739,11 +6390,11 @@
         if (off.chiefWarden) {
           if (inpWarden) {
             inpWarden.value = off.chiefWarden.email || '';
-            inpWarden.readOnly = !isProctor;
+            inpWarden.readOnly = false;
           }
           if (inpPassWarden) {
             inpPassWarden.value = off.chiefWarden.password || '';
-            inpPassWarden.readOnly = !isProctor;
+            inpPassWarden.readOnly = false;
           }
           if (badgeWarden) {
             badgeWarden.textContent = off.chiefWarden.email ? '● Configured' : '○ Optional';
@@ -6751,28 +6402,24 @@
               ? 'px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300 shrink-0'
               : 'px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border border-slate-300 shrink-0';
           }
-          if (btnWarden) btnWarden.style.opacity = isProctor ? '1' : '0.6';
-          if (btnClearWarden) btnClearWarden.style.opacity = isProctor ? '1' : '0.6';
+          if (btnWarden) {
+            btnWarden.style.opacity = '1';
+            btnWarden.style.cursor = 'pointer';
+          }
+          if (btnClearWarden) {
+            btnClearWarden.style.opacity = '1';
+            btnClearWarden.style.cursor = 'pointer';
+          }
         }
       }
 
       function setupOfficialsListeners() {
         initOfficialsConfig();
 
-        function checkProctorEditRights() {
-          const isProctor = currentAdminUser && (currentAdminUser.isSuperAdmin || currentAdminUser.email === 'pramod_kumar@vgu.ac.in');
-          if (!isProctor) {
-            showToast('Access Restricted', 'Email ya password edit/remove karne ka adhikar sidhe Super Admin Proctor Dr. Pramod Kumar ke pass hai.', true);
-            return false;
-          }
-          return true;
-        }
-
-        // Save Proctor Personal Password
+        // Proctor Personal Password Save
         const btnPassProc = document.getElementById('btnSave_proctor');
         if (btnPassProc) {
           btnPassProc.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             const p = (document.getElementById('inputPass_proctor') ? document.getElementById('inputPass_proctor').value : '').trim();
             if (db.config && db.config.officials && db.config.officials.proctor) {
               db.config.officials.proctor.password = p;
@@ -6781,7 +6428,7 @@
                 timestampIst: formatIstNow(),
                 actor: currentAdminUser.email || 'Admin',
                 action: 'PROCTOR_PASSWORD_CONFIGURED',
-                details: p ? 'Personal password set for Proctor Dr. Pramod Kumar' : 'Personal password cleared for Proctor'
+                details: p ? 'Personal password updated for Proctor Dr. Pramod Kumar' : 'Personal password cleared for Proctor (uses master key)'
               });
               renderAdminOfficials();
               showToast('Password Saved', 'Proctor Dr. Pramod Kumar personal password saved successfully!', false);
@@ -6789,11 +6436,10 @@
           });
         }
 
-        // Save Sujeet Personal Password
+        // Sujeet Personal Password Save
         const btnPassSujeet = document.getElementById('btnSave_sujeet');
         if (btnPassSujeet) {
           btnPassSujeet.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             const p = (document.getElementById('inputPass_sujeet') ? document.getElementById('inputPass_sujeet').value : '').trim();
             if (db.config && db.config.officials && db.config.officials.messCommitteeHead) {
               db.config.officials.messCommitteeHead.password = p;
@@ -6814,7 +6460,6 @@
         const btnMess = document.getElementById('btnSave_messManager');
         if (btnMess) {
           btnMess.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             const email = (document.getElementById('inputEmail_messManager') ? document.getElementById('inputEmail_messManager').value : '').trim();
             const pass = (document.getElementById('inputPass_messManager') ? document.getElementById('inputPass_messManager').value : '').trim();
             if (db.config && db.config.officials && db.config.officials.messManager) {
@@ -6838,7 +6483,6 @@
         const btnClearMess = document.getElementById('btnClear_messManager');
         if (btnClearMess) {
           btnClearMess.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             if (db.config && db.config.officials && db.config.officials.messManager) {
               db.config.officials.messManager.email = '';
               db.config.officials.messManager.password = '';
@@ -6854,7 +6498,6 @@
         const btnHostel = document.getElementById('btnSave_hostelHead');
         if (btnHostel) {
           btnHostel.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             const email = (document.getElementById('inputEmail_hostelHead') ? document.getElementById('inputEmail_hostelHead').value : '').trim();
             const pass = (document.getElementById('inputPass_hostelHead') ? document.getElementById('inputPass_hostelHead').value : '').trim();
             if (db.config && db.config.officials && db.config.officials.hostelHead) {
@@ -6878,7 +6521,6 @@
         const btnClearHostel = document.getElementById('btnClear_hostelHead');
         if (btnClearHostel) {
           btnClearHostel.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             if (db.config && db.config.officials && db.config.officials.hostelHead) {
               db.config.officials.hostelHead.email = '';
               db.config.officials.hostelHead.password = '';
@@ -6894,7 +6536,6 @@
         const btnWarden = document.getElementById('btnSave_chiefWarden');
         if (btnWarden) {
           btnWarden.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             const email = (document.getElementById('inputEmail_chiefWarden') ? document.getElementById('inputEmail_chiefWarden').value : '').trim();
             const pass = (document.getElementById('inputPass_chiefWarden') ? document.getElementById('inputPass_chiefWarden').value : '').trim();
             if (db.config && db.config.officials && db.config.officials.chiefWarden) {
@@ -6918,7 +6559,6 @@
         const btnClearWarden = document.getElementById('btnClear_chiefWarden');
         if (btnClearWarden) {
           btnClearWarden.addEventListener('click', function() {
-            if (!checkProctorEditRights()) return;
             if (db.config && db.config.officials && db.config.officials.chiefWarden) {
               db.config.officials.chiefWarden.email = '';
               db.config.officials.chiefWarden.password = '';
